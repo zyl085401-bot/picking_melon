@@ -1,0 +1,60 @@
+charuco_detector:
+  ros__parameters:
+    charuco_parameters:
+      squaresSidesSizeM: 0.025
+      markersSidesSizeM: 0.018
+      numberOfBitsForMarkersSides: 4
+      numberOfMarkers: 17
+      numberOfSquaresInX: 7
+      numberOfSquaresInY: 5
+      dictionaryId: 1
+    # charuco_parameters:
+    #   squaresSidesSizeM: 0.026
+    #   markersSidesSizeM: 0.02
+    #   numberOfBitsForMarkersSides: 4
+    #   numberOfMarkers: 24
+    #   numberOfSquaresInX: 8
+    #   numberOfSquaresInY: 6
+    #   dictionaryId: 5
+    function_parameters:
+      use_median_blur: false
+      median_blur_k_size: 6
+      use_dynamic_range: true
+      use_bilateral_filter: false
+      bilateral_filter_pixel_neighborhood: 5
+      bilateral_filter_sigma_color: 100.0
+      bilateral_filter_sigma_space: 100.0
+      bilateral_filter_border_type: 4
+      use_clahe: true
+      clahe_clip_limit: 1.0
+      clahe_size_x: 2
+      clahe_size_y: 2
+      use_adaptive_threshold: false
+      adaptive_threshold_max_value: 255.0
+      adaptive_threshold_method: 1
+      adaptive_threshold_type: 0
+      adaptive_threshold_block_size: 65
+      adaptive_threshold_constant_offset_from_mean: 0.0
+    tf_parameters:
+      use_static_tf_broadcaster: true
+      tf_broadcaster_republish_rate: 10.0
+      sensor_frame_override: "camera_rgb_optical_frame"
+      charuco_tf_frame: charuco
+
+    subscribers:
+      image_topic:
+        topic: /camera/rgb/image_raw
+        queue_size: 1
+      camera_info:
+        topic: /camera/rgb/camera_info
+        queue_size: 1
+
+    publishers:
+      image_results_publisher:
+        topic: /camera/rgb/image_raw/charuco
+        queue_size: 1
+        latch: false
+      charuco_pose_publisher:
+        topic: /camera/rgb/image_raw/charuco/pose
+        queue_size: 1
+        latch: false

@@ -1,0 +1,28 @@
+{
+    "玻璃试管操作": [
+        "left-glass_tube-hold-glass-pose-prepare",
+        "left-glass_tube-hold-glass-pose-ready",
+        "left-glass_tube-hold-glass-pose-leave",
+        "left-op_glass_tube-hold-glass-pose-prepare",
+        "left-op_glass_tube-hold-glass-pose-ready",
+        "right-op_glass_tube-hold-glass-pose-prepare",
+        "right-op_glass_tube-hold-glass-pose-ready",
+        "left-op_glass_tube-hold-lid-pose-leave",
+        "right-op_glass_tube-hold-glass-pose-leave",
+        "left-op_glass_tube-hold-lid-pose-prepare",
+        "left-op_glass_tube-hold-lid-pose-ready",
+        "left-shake-hold-glass-pose-prepare",
+        "left-shake-hold-glass-pose-ready",
+        "left-shake-hold-glass-pose-leave",
+        "left-op_glass_tube-hold-glass-pose-prepare",
+        "left-op_glass_tube-hold-glass-pose-ready",
+        "left-op_glass_tube-hold-lid-pose-leave",
+        "left-op_glass_tube-hold-lid-pose-prepare",
+        "left-op_glass_tube-hold-lid-pose-ready",
+        "left-op_glass_tube-hold-glass-pose-leave",
+        "left-glass_tube-hold-glass-pose-prepare",
+        "left-glass_tube-hold-glass-pose-ready",
+        "left-glass_tube-hold-glass-pose-leave",
+        "home_left"
+    ]
+}

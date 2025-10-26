@@ -1,0 +1,12 @@
+material fence_material
+{
+  technique
+  {
+    pass
+    {
+      texture_unit{
+        texture grass_texture.png
+      }
+    }
+  }
+}

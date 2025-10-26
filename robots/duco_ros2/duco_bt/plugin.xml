@@ -1,0 +1,6 @@
+<library path="duco_bt">
+    <class name="papjia/duco_bt" type="papjia::behaviors::DucoBehaviorLoader"
+       base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+       <description></description>
+    </class>
+  </library>

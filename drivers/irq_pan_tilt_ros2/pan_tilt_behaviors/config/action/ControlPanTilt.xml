@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="ControlPanTilt">
+    <description>控制云台运动的接口</description>
+    <package_name>pan_tilt_behaviors</package_name>
+    <class_name>ControlPanTiltActionClient</class_name>
+    <input name="action_name" type="std::string"/>
+    <input name="yaw" type="float"/>
+    <input name="pitch" type="float"/>
+    <input name="duration" type="float"/>
+    <input name="speed" type="uint16_t"/>
+    <input name="timeout" type="float"/>
+    <input name="goal_result_timeout" type="double"/>
+    <input name="wait_for_server_timeout" type="double"/>
+    <input name="goal_response_timeout" type="double"/>
+    <input name="cancel_response_timeout" type="double"/>
+    <output name="success" type="bool"/>
+    <output name="message" type="std::string"/>
+    <output name="result_yaw" type="float"/>
+    <output name="result_pitch" type="float"/>
+  </Action>
+</root>

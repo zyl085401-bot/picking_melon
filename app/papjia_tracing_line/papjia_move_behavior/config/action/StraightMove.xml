@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="StraightMove">
+    <description>沿线行走</description>
+    <package_name>papjia_move_behavior</package_name>
+    <class_name>StraightMoveServiceClient</class_name>
+    <input name="service_name" type="std::string"/>
+    <input name="result_timeout" type="float"/>
+    <input name="distance" type="float"/>
+    <input name="speed" type="float"/>
+    <input name="use_integral" type="bool"/>
+    <input name="follow_line" type="bool"/>
+    <input name="line_frame" type="std::string"/>
+    <input name="line_start" type="std::vector&lt;double&gt;"/>
+    <input name="line_end" type="std::vector&lt;double&gt;"/>
+    <output name="success" type="bool"/>
+  </Action>
+</root>

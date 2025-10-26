@@ -1,0 +1,7 @@
+./images/test/slots_2_026.jpg
+./images/test/slots_1_022.jpg
+./images/test/slots_2_007.jpg
+./images/test/slots_2_021.jpg
+./images/test/slots_1_007.jpg
+./images/test/slots_2_010.jpg
+./images/test/slots_1_014.jpg

@@ -1,0 +1,7 @@
+<library path="papjia_visualization_behaviors">
+    <class name="papjia/visualization_behaviors" type="papjia::behaviors::VisualizationBehaviorLoader"
+       base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+       <description>可视化相关的行为插件</description>
+    </class>
+  </library>
+  

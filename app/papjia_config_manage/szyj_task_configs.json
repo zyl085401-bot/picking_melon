@@ -1,0 +1,304 @@
+{
+    "测试移液": [
+        {
+            "objectType": "test_tube",
+            "name": "home_left"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "home_right"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液试管库-抓取-准备"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液试管库-抓取-就绪"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液试管库-抓取-撤退"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "右臂-操作台-准备"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "右臂-操作台-就绪"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液操作台-放-准备"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液操作台-放-就绪"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "右臂-操作台-后撤"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液操作台-放-撤退"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-玻璃试管库-抓取-准备"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-玻璃试管库-抓取-就绪"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-玻璃试管库-抓取-撤退"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "right-op_glass_tube-hold-glass-pose-prepare"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "right-op_glass_tube-hold-glass-pose-ready"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-药液操作台-放置-准备"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-药液操作台-放置-就绪"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "right-op_glass_tube-hold-glass-pose-leave"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-药液操作台-放置-撤退"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "home_right"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "home_left"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-出入库-初始点"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-准备1"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-准备2"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-就绪"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-撤退"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-准备"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-就绪"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-抬起"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-撤退"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-准备1"
+        },
+        {
+            "objectType": "pipette",
+            "name": "home_left"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-枪头库-取枪头-准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-枪头库-取枪头-就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-枪头库-取枪头-撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-药液试管取液-准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-药液试管取液-就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-药液试管取液-撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-玻璃试管-准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-玻璃试管-就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-玻璃试管-撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-烧瓶操作台-烧瓶1-准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-烧瓶操作台-烧瓶1-就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-烧瓶操作台-烧瓶1-撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "home_left"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-准备"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-就绪"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-抬起"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-操作台-撤退"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-准备1"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-准备2"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-就绪"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-入库-撤退"
+        },
+        {
+            "objectType": "dish",
+            "name": "右臂-平板库-出入库-初始点"
+        },
+        {
+            "objectType": "dish",
+            "name": "home_right"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-药液操作台-取玻璃试管-准备"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-药液操作台-取玻璃试管-就绪"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-药液操作台-取玻璃试管-撤退"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-玻璃试管库-抓取-准备"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-玻璃试管库-抓取-就绪"
+        },
+        {
+            "objectType": "glass_tube",
+            "name": "左臂-玻璃试管库-抓取-撤退"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液操作台-取-准备"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液操作台-取-就绪"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液操作台-取-撤退"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液试管库-放-准备"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液试管库-放-就绪"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "左臂-药液试管库-放-撤退"
+        },
+        {
+            "objectType": "test_tube",
+            "name": "home_left"
+        }
+    ]
+}

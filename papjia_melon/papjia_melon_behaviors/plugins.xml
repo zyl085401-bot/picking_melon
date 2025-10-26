@@ -1,0 +1,8 @@
+<library path="papjia_melon_behaviors">
+    <class name="papjia/melon_bt" 
+       type="papjia::behaviors::PapjiaMelonBehaviorLoader"
+       base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+       <description>采摘行为插件</description>
+    </class>
+  </library>
+  

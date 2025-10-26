@@ -1,0 +1,5 @@
+SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="067b", ENV{ID_MODEL_ID}=="23a3", SYMLINK+="papjia_gps"
+SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="10c4", ENV{ID_MODEL_ID}=="ea60", SYMLINK+="papjia_imu"
+SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="1a86", ENV{ID_MODEL_ID}=="55d5", ENV{MINOR}=="0", MODE:="0666", SYMLINK+="papjia_shears"
+SUBSYSTEM=="tty", ENV{ID_VENDOR_ID}=="1a86", ENV{ID_MODEL_ID}=="55d5", ENV{MINOR}=="1", MODE:="0666", SYMLINK+="papjia_gripper"
+SUBSYSTEM=="input", ENV{ID_VENDOR_ID}=="16c0", ENV{ID_MODEL_ID}=="05e2", ENV{ID_USB_INTERFACE_NUM}=="00", MODE:="0666", OWNER="input", SYMLINK+="papjia_press_enter"

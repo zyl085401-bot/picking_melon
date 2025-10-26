@@ -1,0 +1,60 @@
+<root>
+	<TreeNodesModel>
+		<Action ID="ControlGripper">
+			<description>
+				<p>手爪控制</p>
+			</description>
+			<input_port name="service_name" />
+			<input_port name="cmd" />
+		</Action>
+
+		<Action ID="ControlShears">
+			<description>
+				<p>剪刀控制</p>
+			</description>
+			<input_port name="service_name" />
+			<input_port name="cmd" />
+		</Action>
+
+		<Action ID="GlobalFilterObjects">
+			<description>
+				<p>过滤出最近的目标物体</p>
+			</description>
+			<port name="objects" port_type="input" data_type="papjia_vision_interface::msg::Object[]" />
+			<port name="distance_threshold" port_type="input" default="1.2" data_type="double" />
+			<port name="filtered_objects" port_type="output" data_type="BT::SharedQueue papjia_vision_interface::msg::Object" />
+		</Action>
+
+		<Action ID="LocalFilterObject">
+			<description>
+				<p>过滤出最近的抓取物体</p>
+			</description>
+			<port name="objects" port_type="input" data_type="papjia_vision_interface::msg::Object[]" />
+			<port name="filtered_object" port_type="output" data_type="papjia_vision_interface::msg::Object" />
+		</Action>
+
+		<Action ID="GetObjectDetectConfig">
+			<description>
+				<p>生成预抓取物体的抓取点配置</p>
+			</description>
+			<port name="object" port_type="input" data_type="papjia_vision_interface::msg::Object" />
+			<port name="pitch_degree" port_type="input" default="-10" data_type="double" />
+			<port name="dx" port_type="input" default="0.3" data_type="double" />
+			<port name="dy" port_type="input" default="0.0" data_type="double" />
+			<port name="dz" port_type="input" default="0.02" data_type="double" />
+			<port name="detect_position" port_type="output" data_type="Vector3D" />
+			<port name="detect_quaternion" port_type="output" data_type="Vector4D" />
+		</Action>
+
+		<Action ID="GetObjectPickConfig">
+			<description>
+				<p>生成预抓取物体的抓取点配置</p>
+			</description>
+			<port name="object" port_type="input" data_type="papjia_vision_interface::msg::Object" />
+			<port name="pitch_degree" port_type="input" default="-30" data_type="double" />
+			<port name="pick_position" port_type="output" data_type="Vector3D" />
+			<port name="pick_quaternion" port_type="output" data_type="Vector4D" />
+		</Action>
+		
+	</TreeNodesModel>
+</root>

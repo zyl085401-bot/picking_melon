@@ -1,0 +1,14 @@
+papjia_vision_seg_node:
+  ros__parameters:
+    model_type: "yolo"
+    resource_dir: "/workspace/install/papjia_detector/share/papjia_detector/resource"
+    model_path: "weights/melon_0515.pt"
+    labels: ["M1", "M2", "M3"]
+    rect: [0, 0, 1279, 719]
+    device: "cuda:0"
+    sample_image: "images/sample_bitter.jpg"
+    channels: "rgb"
+    service_topic: "/papjia_vision/service_image_segment"
+    result_image_topic: "/papjia_vision/service_image_segment/result_image"
+    prepare_times: 2
+    with_mask: true

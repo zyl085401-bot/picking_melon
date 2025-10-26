@@ -1,0 +1,12 @@
+action_projects:
+  - object_manage_behaviors
+
+action_dirs:
+  - /workspace/install/type_trans_behaviors/share/type_trans_behaviors/config/action
+  - /workspace/install/papjia_vision_behaviors/share/papjia_vision_behaviors/config/action
+  - /workspace/install/papjia_generic_behaviors/share/papjia_generic_behaviors/config/action
+  - /workspace/install/papjia_mtc_bt/share/papjia_mtc_bt/config/action
+  - /workspace/install/papjia_driver_behaviors/share/papjia_driver_behaviors/config/action
+  - /workspace/install/object_manage_behaviors/share/object_manage_behaviors/config/action
+  - /workspace/install/papjia_szyj_bt/share/papjia_szyj_bt/config/action
+  # - /workspace/install/papjia_visualization_behaviors/share/papjia_visualization_behaviors/config/action

@@ -1,0 +1,297 @@
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QHBoxLayout, QVBoxLayout, QPushButton, QFormLayout, QComboBox, QTextEdit, QFileDialog
+import sys
+
+
+def add_underscore_and_lowercase(s):
+    if not s:
+        return s
+
+    result = s[0].lower()  # 第一个字符直接转为小写
+    for char in s[1:]:
+        if char.isupper():
+            result += "_" + char.lower()
+        else:
+            result += char
+    return result
+
+
+class ROS2ControllerGenerator(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        layout = QVBoxLayout()
+        form_layout = QFormLayout()
+
+        # Action Client Package Path
+        self.pkg_path_input = QLineEdit(self)
+        self.pkg_path_input.setPlaceholderText("Select Behavior Package Path")
+        self.pkg_path_button = QPushButton("Browse", self)
+        self.pkg_path_button.clicked.connect(self.select_behavior_pkg_dir)
+        pkg_layout = QHBoxLayout()
+        pkg_layout.addWidget(self.pkg_path_input)
+        pkg_layout.addWidget(self.pkg_path_button)
+        layout.addWidget(QLabel("Behavior Package Path:"))
+        layout.addLayout(pkg_layout)
+
+        # Class name input
+        self.class_name_input = QLineEdit()
+        form_layout.addRow("Class Name:", self.class_name_input)
+
+        # Service and Action input
+        self.service_input = QLineEdit()
+        form_layout.addRow("Service Type:", self.service_input)
+
+        self.action_input = QLineEdit()
+        form_layout.addRow("Action Type:", self.action_input)
+
+        # Joint configuration
+        self.joint_name_input = QLineEdit()
+        form_layout.addRow("Joint Name:", self.joint_name_input)
+
+        self.param_type_combo = QComboBox()
+        self.param_type_combo.addItems(["position", "velocity", "effort"])
+        form_layout.addRow("Parameter Type:", self.param_type_combo)
+
+        layout.addLayout(form_layout)
+
+        # Generate button
+        self.generate_button = QPushButton("Generate Controller Code")
+        self.generate_button.clicked.connect(self.generate_code)
+        layout.addWidget(self.generate_button)
+
+        # Output display
+        self.output_display = QTextEdit()
+        layout.addWidget(self.output_display)
+
+        self.setLayout(layout)
+        self.setWindowTitle("ROS2 Controller Generator")
+
+    def select_behavior_pkg_dir(self):
+        dir_path = QFileDialog.getExistingDirectory(self, "Select Behavior Package Directory")
+        if dir_path:
+            self.pkg_path_input.setText(dir_path)
+
+    def generate_code(self):
+        package_name = "controller"
+        class_name = f"{self.class_name_input.text().strip()}Controller"
+        file_name = add_underscore_and_lowercase(class_name)
+        service_type = self.service_input.text().strip()
+        service_type_using = f'{service_type.split("::")[-1]}Service' if service_type else ""
+        service_topic = f'"{add_underscore_and_lowercase(service_type_using)}"' if service_type_using else ""
+        action_type = self.action_input.text().strip()
+        action_type_using = f'{action_type.split("::")[-1]}Action' if action_type else ""
+        action_topic = f'"{add_underscore_and_lowercase(service_type_using)}"' if service_type_using else ""
+
+        includes = f"""
+#ifndef {class_name.upper()}_CONTROLLER_HPP
+#define {class_name.upper()}_CONTROLLER_HPP
+
+#include "rclcpp_action/rclcpp_action.hpp"
+#include "controller_interface/controller_interface.hpp"
+#include "{package_name}/{file_name}_parameters.hpp"
+"""
+        includes += "\n"
+
+        if service_type:
+            includes += f'\n#include "{service_type}.hpp"'
+        if action_type:
+            includes += f'\n#include "{action_type}.hpp"'
+
+        service_code = ""
+        if service_type:
+            service_code = f"""
+        // Service type
+        using {service_type_using} = {service_type};
+        using {service_type_using}Server = rclcpp::Service<{service_type_using}>;
+
+        // Service server
+        {service_type_using}Server::SharedPtr service_server_;
+
+        // Service callback
+        bool {add_underscore_and_lowercase(service_type_using)}_callback(const std::shared_ptr<{service_type_using}::Request> request,
+            std::shared_ptr<{service_type_using}::Response> response);
+        """
+            service_code += "\n"
+
+        action_code = ""
+        if action_type:
+            action_code = f"""
+        // Action type
+        using {action_type_using} = {action_type};
+        using {action_type_using}Server = rclcpp_action::Server<{action_type_using}>;
+        using {action_type_using}GoalHandle = rclcpp_action::ServerGoalHandle<{action_type_using}>;
+
+        // Action server
+        rclcpp_action::Server<action_type_using>::SharedPtr action_server_;
+
+        // Action callback
+        rclcpp_action::GoalResponse handle_goal(
+            const rclcpp_action::GoalUUID &uuid, std::shared_ptr<const {action_type_using}::Goal> goal);
+        rclcpp_action::CancelResponse handle_cancel(const std::shared_ptr<{action_type_using}GoalHandle> goal_handle);
+        void handle_accepted(std::shared_ptr<{action_type_using}GoalHandle> goal_handle);
+        void execute(const std::shared_ptr<{action_type_using}GoalHandle> goal_handle);
+        """
+
+        # Generate header file content
+        hpp_code = f"""
+{includes}
+namespace generated_ros2_controller {{
+    class {class_name}Controller : public controller_interface::ControllerInterface {{
+    public:
+        {class_name}Controller();
+        controller_interface::InterfaceConfiguration command_interface_configuration() const override;
+        controller_interface::InterfaceConfiguration state_interface_configuration() const override;
+        controller_interface::return_type update(const rclcpp::Time &time, const rclcpp::Duration &period) override;
+
+        controller_interface::CallbackReturn on_init() override;
+        controller_interface::CallbackReturn on_configure(const rclcpp_lifecycle::State &previous_state) override;
+        controller_interface::CallbackReturn on_activate(const rclcpp_lifecycle::State &previous_state) override;
+        controller_interface::CallbackReturn on_deactivate(const rclcpp_lifecycle::State &previous_state) override;
+        
+    private:
+        // 参数监听器
+        std::shared_ptr<ParamListener> param_listener_;
+        Params params_;
+
+        {f'using ServiceType = {service_type};' if service_type else ''}
+        {f'using ActionType = {action_type};' if action_type else ''}        
+    }};
+}}
+
+#endif
+        """
+
+        service_code = ""
+        if service_type:
+            service_code = f"""
+
+    bool {class_name}::{add_underscore_and_lowercase(service_type_using)}_callback(
+        const std::shared_ptr<{service_type_using}::Request> request,
+        std::shared_ptr<{service_type_using}::Response> response)
+    {{
+        // TODO
+    }}
+            """
+
+        action_code = ""
+        if action_type:
+            action_code = f"""
+
+    rclcpp_action::GoalResponse {class_name}::handle_goal(
+        const rclcpp_action::GoalUUID &uuid, std::shared_ptr<const {action_type_using}::Goal> goal)
+    {{
+        // TODO
+        return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+    }}
+
+    rclcpp_action::CancelResponse {class_name}::handle_cancel(const std::shared_ptr<{action_type_using}GoalHandle> goal_handle)
+    {{
+        // 取消
+        // TODO
+        return rclcpp_action::CancelResponse::ACCEPT;
+    }}
+
+    void {class_name}::handle_accepted(std::shared_ptr<{action_type_using}GoalHandle> goal_handle)
+    {{
+        RCLCPP_INFO(get_node()->get_logger(), "Accepted goal");
+        std::thread{{std::bind(&KcePumpController::execute, this, std::placeholders::_1), goal_handle}}.detach();
+    }}
+
+    void {class_name}::execute(const std::shared_ptr<{action_type_using}GoalHandle> goal_handle)
+    {{
+        // 执行
+        // TODO
+    }}
+            """
+
+        # Generate source file content
+        cpp_code = f"""
+#include "{file_name}.hpp"
+
+namespace generated_ros2_controller {{
+    {class_name}Controller::{class_name}Controller() {{}}
+
+    controller_interface::InterfaceConfiguration {class_name}::command_interface_configuration() const
+    {{
+        // 配置命令接口
+        controller_interface::InterfaceConfiguration config;
+        config.type = controller_interface::interface_configuration_type::INDIVIDUAL;
+
+        // config.names.push_back(params_.device_name + "/" + "target_velocity");
+        // TODO
+        return config;
+    }}
+
+    controller_interface::InterfaceConfiguration {class_name}::state_interface_configuration() const
+    {{
+        // 配置状态接口
+        controller_interface::InterfaceConfiguration config;
+        config.type = controller_interface::interface_configuration_type::INDIVIDUAL;
+
+        // config.names.push_back(params_.device_name + "/" + "target_velocity");
+        // TODO
+        return config;
+    }}
+
+    controller_interface::return_type {class_name}::update(const rclcpp::Time &time, const rclcpp::Duration &period)
+    {{
+        // 发布状态 or 其他操作
+        // TODO
+        return controller_interface::return_type::OK;
+    }}
+
+    controller_interface::CallbackReturn {class_name}::on_init()
+    {{
+        try
+        {{
+            param_listener_ = std::make_shared<ParamListener>(get_node());
+            params_ = param_listener_->get_params();
+
+            // TODO
+
+            return controller_interface::CallbackReturn::SUCCESS;
+        }}
+        catch (const std::exception &e)
+        {{
+            RCLCPP_ERROR(get_node()->get_logger(), "Exception in on_init: %s", e.what());
+            return controller_interface::CallbackReturn::ERROR;
+        }}
+    }}
+
+    controller_interface::CallbackReturn {class_name}::on_configure(const rclcpp_lifecycle::State &previous_state)
+    {{
+        return controller_interface::CallbackReturn::SUCCESS;
+    }}
+
+    controller_interface::CallbackReturn {class_name}::on_activate(const rclcpp_lifecycle::State &previous_state)
+    {{
+        // 初始化状态&命令接口
+
+        {f"service_server_ = get_node()->create_service<{service_type_using}>({service_topic}, std::bind(&{class_name}::{add_underscore_and_lowercase(service_type_using)}_callback, this, std::placeholders::_1, std::placeholders::_2)" if service_type else ""}
+        {f"action_server_ = rclcpp_action::create_server<{action_type_using}>(get_node(), {action_topic}, std::bind(&{class_name}::handle_goal, this, std::placeholders::_1, std::placeholders::_2), std::bind(&{class_name}::handle_cancel, this, std::placeholders::_1), std::bind(&{class_name}::handle_accepted, this, std::placeholders::_1));" if action_type else ""}
+
+        return controller_interface::CallbackReturn::SUCCESS;
+    }}
+
+    controller_interface::CallbackReturn KcePumpController::on_deactivate(const rclcpp_lifecycle::State &previous_state)
+    {{
+        // 停用控制器
+        // TODO
+        RCLCPP_INFO(get_node()->get_logger(), "Controller deactivated.");
+        return controller_interface::CallbackReturn::SUCCESS;
+    }}
+    {service_code}
+    {action_code}
+}}
+        """
+
+        self.output_display.setText(f"HPP File:\n" + hpp_code + "\n\nCPP File:\n" + cpp_code)
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = ROS2ControllerGenerator()
+    window.show()
+    sys.exit(app.exec_())

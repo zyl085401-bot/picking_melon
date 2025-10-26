@@ -1,0 +1,15 @@
+<root>
+	<TreeNodesModel>
+		<Action ID="StraightMove">
+			<description>
+				<p>
+					控制机器人沿线行走：支持直接发速度命令行走以及寻线行走
+				</p>
+			</description>
+			<port name="serivce_name" port_type="input" object_type="std::string" description="服务名" />
+			<port name="distance" port_type="input" object_type="float" description="行走距离" />
+			<port name="speed" port_type="input" object_type="float" description="行走速度，带方向" />
+			<port name="use_integral" port_type="input" object_type="bool" description="是否使用I" />
+		</Action>
+	</TreeNodesModel>
+</root>

@@ -1,0 +1,5 @@
+uint64 max_num
+float64 min_score
+---
+Object[] objects
+bool success

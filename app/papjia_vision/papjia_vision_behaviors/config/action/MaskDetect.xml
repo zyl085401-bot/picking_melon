@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="MaskDetect">
+    <description>图像分割或者检测</description>
+    <package_name>papjia_vision_behaviors</package_name>
+    <class_name>DetectMasksServiceClient</class_name>
+    <input name="service_name" type="std::string"/>
+    <input name="image" type="sensor_msgs::msg::Image"/>
+    <input name="max_num" type="std::uint64_t"/>
+    <input name="min_score" type="double"/>
+    <input name="allowed_roi" type="std::string"/>
+    <input name="allowed_categories" type="std::string"/>
+    <output name="objs_num" type="std::uint64_t"/>
+    <output name="with_mask" type="bool"/>
+    <output name="mask" type="sensor_msgs::msg::Image"/>
+    <output name="objects" type="papjia_vision_interface::msg::Objects2d"/>
+  </Action>
+</root>

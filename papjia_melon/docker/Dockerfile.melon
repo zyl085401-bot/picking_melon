@@ -1,0 +1,88 @@
+FROM papjia-docker.pkg.coding.net/papjia_mobile_manipulator/melon/papjia_melon_core:latest
+
+COPY papjia_melon/docker/ros.key  /usr/share/keyrings/ros-archive-keyring.gpg
+
+WORKDIR /workspace
+
+RUN apt-get update \
+    && apt-get install -y \
+    ros-${ROS_DISTRO}-gazebo-ros2-control \
+    ros-${ROS_DISTRO}-filters \
+    fonts-wqy-microhei \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY app/papjia_config_manage/requirements.txt /tmp/papjia_config_manage_requirements.txt
+
+RUN pip install --ignore-installed -r /tmp/papjia_config_manage_requirements.txt
+
+COPY app /workspace/src/app
+COPY drivers /workspace/src/drivers
+COPY robots /workspace/src/robots
+COPY tools /workspace/src/tools
+COPY papjia_melon /workspace/src/papjia_melon
+
+# 安装udev规则
+COPY papjia_melon/99-papjia-driver.rules /etc/udev/rules.d/99-papjia-driver.rules
+COPY papjia_melon/docker/entrypoint_udev.sh /entrypoint_udev.sh
+RUN chmod +x /entrypoint_udev.sh
+
+# 添加Gazebo的环境变量
+COPY papjia_melon/docker/entrypoint_gazebo.sh /tmp/entrypoint_gazebo.sh
+
+# 构建 ROS 2 工作空间
+RUN source /opt/ros/${ROS_DISTRO}/setup.bash && \
+    source /papjia_core_ws/install/setup.bash && \
+    colcon build
+
+RUN echo "source /papjia_core_ws/install/setup.bash" >> ~/.bashrc
+RUN echo "source /workspace/install/setup.bash" >> ~/.bashrc
+RUN cat /tmp/entrypoint_gazebo.sh >> /root/.bashrc 
+
+
+# GPS
+RUN echo 'alias load_gps="ros2 launch nav2_gps_waypoint_follower_demo gps.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_save_gps="ros2 run nav2_gps_waypoint_follower_demo gps_waypoint_logger"' >> ~/.bashrc
+
+# 视觉
+RUN echo 'alias load_camera="ros2 launch papjia_melon_config camera.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_camera_calibration="ros2 launch papjia_melon_config camera.launch.py detect_charucoboard:=true"' >> ~/.bashrc && \
+    echo 'alias load_vision="ros2 launch papjia_melon_config vision.launch.py"' >> ~/.bashrc && \
+echo 'alias load_image_pub="ros2 launch papjia_melon_config rgbd_publish.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_visualization="ros2 launch papjia_melon_config visualization_service.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_image_save="ros2 launch papjia_melon_config rgbd_saver.launch.py"' >> ~/.bashrc
+
+# 硬件
+RUN echo 'alias load_arm="ros2 launch papjia_melon_config arm.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_arm_sim="ros2 launch papjia_melon_config arm.launch.py use_mock_hardware:=true"' >> ~/.bashrc && \
+    echo 'alias load_car="ros2 launch papjia_melon_config car.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_car_sim="ros2 launch papjia_melon_config car_sim.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_device="ros2 launch papjia_melon_config device.launch.py"' >> ~/.bashrc
+
+# 服务
+RUN echo 'alias load_bt="ros2 launch papjia_melon_config bt.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_bringup="ros2 launch papjia_melon_config bringup.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_localization="ros2 launch papjia_melon_config localization.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_localization_sim="ros2 launch papjia_melon_config localization_sim.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_tracing="ros2 launch papjia_melon_config tracing.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_tracing_sim="ros2 launch papjia_melon_config tracing_sim.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_task_test="python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node.py"' >> ~/.bashrc
+
+ENTRYPOINT [ "/entrypoint_udev.sh" ]
+CMD ["bash"]
+
+# load_arm
+# load_camera
+# load_vision
+# load_bt
+# load_task_test
+
+
+# load_arm_sim
+# ros2 launch papjia_melon_config rgbd_publish_base.launch.py
+# load_vision="ros2 launch papjia_melon_config vision_base.launch.py
+# load_bt
+# python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node_base.py
+
+
+# ros2 bag record -a -o /workspace/src/papjia_melon/papjia_melon_calibration/test_savedata/my_calibration_data
+# 

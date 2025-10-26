@@ -1,0 +1,11 @@
+alias car="ros2 launch papjia_melon_config car.launch.py"
+alias camera="ros2 launch papjia_melon_config camera.launch.py"
+alias arm="ros2 launch papjia_melon_config arm.launch.py"
+alias device="ros2 launch papjia_melon_config device.launch.py"
+alias bt="ros2 launch papjia_melon_config bt.launch.py"
+alias vision="ros2 launch papjia_melon_config vision.launch.py"
+alias vision_hand="ros2 launch papjia_melon_config vision_hand.launch.py"
+alias vision_base="ros2 launch papjia_melon_config vision_base.launch.py"
+alias w="terminator --layout=arm"
+
+alias bu="cd /home/lab/melon_ws && colcon build --packages-select papjia_melon_config"

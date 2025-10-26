@@ -1,0 +1,10 @@
+from moveit_configs_utils import MoveItConfigsBuilder
+from moveit_configs_utils.launches import generate_move_group_launch
+
+
+def generate_launch_description():
+    moveit_config = MoveItConfigsBuilder("duco_urdf", package_name="duco_gcr5_moveit_config").to_moveit_configs()
+    moveit_config.robot_description_kinematics.update({
+        "use_sim_time": True,  # 启用仿真时间
+    })
+    return generate_move_group_launch(moveit_config)

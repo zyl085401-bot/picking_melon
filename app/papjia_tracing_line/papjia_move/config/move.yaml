@@ -1,0 +1,10 @@
+move_service_node:
+  ros__parameters:
+    topic_tracing_move: /papjia/move/line_tracing
+    topic_tracing_trigger: /papjia/move/line_tracing_trigger
+    topic_straight_move: /papjia/move/straight_move
+    topic_odom: /odom
+    enable_tracing: true
+    enable_move: false
+    default_speed: 0.1
+    use_stamp_twist: false

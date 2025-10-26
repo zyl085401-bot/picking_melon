@@ -1,0 +1,630 @@
+{
+    "home_left": {
+        "group": "arm_left",
+        "planner": "ptp",
+        "preWaypoint": "",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values": [
+            1.9812279536938833,
+            0.5206840757474683,
+            2.38235697567974,
+            -0.9922022264662563,
+            0.8700117255341334,
+            1.0151707594225017
+        ],
+        "description": "左臂home点",
+        "type": "joint"
+    },
+    "home_right": {
+        "group": "arm_right",
+        "planner": "ptp",
+        "preWaypoint": "",
+        "joint_names": [
+            "arm_right_joint1",
+            "arm_right_joint2",
+            "arm_right_joint3",
+            "arm_right_joint4",
+            "arm_right_joint5",
+            "arm_right_joint6"
+        ],
+        "joint_values": [
+            -1.6336979930367723,
+            -0.1943075056245287,
+            -2.5776069591003457,
+            1.28969359746869,
+            0.8333074513646926,
+            -3.141592653589793
+        ],
+        "description": "右臂home点",
+        "type": "joint"
+    },
+    "left-glass_tube-hold-glass-pose-prepare": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.1746045101258478,
+            1.309407541610573,
+            1.3918324806593692,
+            -1.4967563412657863,
+            0.858690057315336,
+            2.107480157265038
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "glass_tube",
+        "stage_name": "left-glass_tube-hold-glass-pose-prepare",
+        "planner": "ptp",
+        "description": "左手去试管架抓取试管的预备点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.04,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.457837114029914,
+            1.2918683869980567,
+            1.4628475201043396,
+            -1.2995258834167824,
+            0.7901087321114573,
+            1.7355192337477772
+        ]
+    },
+    "left-glass_tube-hold-glass-pose-ready": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.5222752464235945,
+            1.3752188081791892,
+            1.3890941508945656,
+            -1.2437596005915084,
+            0.7848393620791986,
+            1.6440629007307466
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "glass_tube",
+        "stage_name": "left-glass_tube-hold-glass-pose-ready",
+        "planner": "lin",
+        "description": "左手去试管架抓取试管的就绪点位",
+        "pose": [
+            0.0,
+            0.0,
+            -0.025,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.5277341927665207,
+            1.3819716463070397,
+            1.3820383916656698,
+            -1.2384405502281834,
+            0.7845659891294774,
+            1.6366884564534607
+        ]
+    },
+    "left-glass_tube-hold-glass-pose-leave": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": "",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "glass_tube",
+        "pose": [
+            0,
+            0,
+            0.1,
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "左手去试管架抓取试管的撤离点位",
+        "type": "cartesian"
+    },
+    "left-op_glass_tube-hold-glass-pose-prepare": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.134836043537675,
+            1.2625146749266591,
+            1.402115426396682,
+            -1.4944050163573348,
+            0.873634299710384,
+            2.1581346936298136
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "op_glass_tube",
+        "stage_name": "left-op_glass_tube-hold-glass-pose-prepare",
+        "planner": "ptp",
+        "description": "左手去试管操作台放置试管的预备点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.09,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.1272809738031309,
+            1.2533726969458694,
+            1.4001337046135045,
+            -1.489403841625803,
+            0.8768047709684537,
+            2.1649309268631445
+        ]
+    },
+    "left-op_glass_tube-hold-glass-pose-ready": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.2083618499840614,
+            1.353419636311424,
+            1.3758162680389978,
+            -1.4991800206650012,
+            0.8470928915656717,
+            2.068305663157105
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "op_glass_tube",
+        "stage_name": "left-op_glass_tube-hold-glass-pose-ready",
+        "planner": "lin",
+        "description": "左手去试管操作台放置试管的就绪点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.005,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.2083618499840614,
+            1.353419636311424,
+            1.3758162680389978,
+            -1.4991800206650012,
+            0.8470928915656717,
+            2.068305663157105
+        ]
+    },
+    "left-op_glass_tube-hold-lid-pose-leave": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.2083618499840614,
+            1.353419636311424,
+            1.3758162680389978,
+            -1.4991800206650012,
+            0.8470928915656717,
+            2.068305663157105
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "op_glass_tube",
+        "stage_name": "left-op_glass_tube-hold-lid-pose-leave",
+        "planner": "lin",
+        "description": "左手在试管操作台取走试管盖的撤离点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.04,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.1750102805801679,
+            1.3118656560171644,
+            1.3860588905090099,
+            -1.4954667024352792,
+            0.8590427436897119,
+            2.1083351603387985
+        ]
+    },
+    "left-op_glass_tube-hold-lid-pose-prepare": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.1750102805801679,
+            1.3118656560171644,
+            1.3860588905090099,
+            -1.4954667024352792,
+            0.8590427436897119,
+            2.1083351603387985
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "op_glass_tube",
+        "stage_name": "left-op_glass_tube-hold-lid-pose-prepare",
+        "planner": "ptp",
+        "description": "左手在试管操作台盖上试管盖的预备点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.06,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.1557395850825238,
+            1.288201458174165,
+            1.3918712569461003,
+            -1.492960587747052,
+            0.866120330939584,
+            2.131809647609801
+        ]
+    },
+    "left-op_glass_tube-hold-lid-pose-ready": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.1884705280450991,
+            1.3284902845886002,
+            1.3855215986751503,
+            -1.5017950574564327,
+            0.8538454569447622,
+            2.0925836452867386
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "op_glass_tube",
+        "stage_name": "left-op_glass_tube-hold-lid-pose-ready",
+        "planner": "lin",
+        "description": "左手在试管操作台盖上试管盖的就绪点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.02,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.1930387660743684,
+            1.333979136997841,
+            1.3834765109135367,
+            -1.501503405788865,
+            0.8522134785552108,
+            2.0872464543846467
+        ]
+    },
+    "left-op_glass_tube-hold-glass-pose-leave": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.188345717911677,
+            1.3282949278408456,
+            1.3851416250271598,
+            -1.5009696659530147,
+            0.8539381243811355,
+            2.092799807185476
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "op_glass_tube",
+        "stage_name": "left-op_glass_tube-hold-glass-pose-leave",
+        "planner": "lin",
+        "description": "左手在试管操作台取走试管的撤离点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.08,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.1369089648983783,
+            1.2653104394481225,
+            1.396399599729249,
+            -1.4896417608990271,
+            0.8732432391093992,
+            2.1537924723763444
+        ]
+    },
+    "left-shake-hold-glass-pose-prepare": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.3979110479971122,
+            1.3416426731544124,
+            2.224275230324829,
+            -2.166211024524018,
+            0.8012818317612462,
+            1.8170049874439207
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "shake",
+        "stage_name": "left-shake-hold-glass-pose-prepare",
+        "planner": "ptp",
+        "description": "左手握持试管在振荡器上的预备点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.13,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.3769461775582683,
+            1.3289455119248075,
+            2.236414072230822,
+            -2.1855837345479125,
+            0.8048063783010304,
+            1.8442321418148335
+        ]
+    },
+    "left-shake-hold-glass-pose-ready": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.4325295717511604,
+            1.3695843911720145,
+            2.1987820925959367,
+            -2.1359511129243973,
+            0.7953499914063105,
+            1.7701270399194393
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "shake",
+        "stage_name": "left-shake-hold-glass-pose-ready",
+        "planner": "lin",
+        "description": "左手握持试管在振荡器上的就绪点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.09,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.4526352401037588,
+            1.3807703142397876,
+            2.185504951301253,
+            -2.1120669302221846,
+            0.7927182428790299,
+            1.7407342822104195
+        ]
+    },
+    "left-shake-hold-glass-pose-leave": {
+        "group": "arm_left",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values_init": [
+            1.3975400175432238,
+            1.3411621465315209,
+            2.2249258206033207,
+            -2.1623132408546213,
+            0.8008600705377669,
+            1.8143893821280346
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_left_grasp",
+        "frame_id": "shake",
+        "stage_name": "left-shake-hold-glass-pose-leave",
+        "planner": "lin",
+        "description": "左手握持试管在振荡器上的撤离点位",
+        "pose": [
+            0.0,
+            0.0,
+            0.13,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            1.3781226080138391,
+            1.3288135282051246,
+            2.236907214924389,
+            -2.1829499876667886,
+            0.8046886820518319,
+            1.842981625186546
+        ]
+    },
+    "right-op_glass_tube-hold-glass-pose-prepare": {
+        "group": "arm_right",
+        "joint_names": [
+            "arm_right_joint1",
+            "arm_right_joint2",
+            "arm_right_joint3",
+            "arm_right_joint4",
+            "arm_right_joint5",
+            "arm_right_joint6"
+        ],
+        "joint_values_init": [
+            -1.8219986462405073,
+            -1.388841561029782,
+            -1.174607939227742,
+            0.7591046269468898,
+            2.3222532071961535,
+            -5.054658713761622
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_right_grasp_inner",
+        "frame_id": "op_glass_tube",
+        "stage_name": "right-op_glass_tube-hold-glass-pose-prepare",
+        "planner": "ptp",
+        "description": "右手去试管操作台放置试管的预备点位",
+        "pose": [
+            0.0,
+            -0.12,
+            -0.065,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            -1.8268083101665038,
+            -1.3979923373042018,
+            -1.1608354988700196,
+            0.7499769003321779,
+            2.321345719611344,
+            -5.061580670792814
+        ]
+    },
+    "right-op_glass_tube-hold-glass-pose-ready": {
+        "group": "arm_right",
+        "joint_names": [
+            "arm_right_joint1",
+            "arm_right_joint2",
+            "arm_right_joint3",
+            "arm_right_joint4",
+            "arm_right_joint5",
+            "arm_right_joint6"
+        ],
+        "joint_values_init": [
+            -1.7115018505770545,
+            -1.5709980736676439,
+            -1.10659434822524,
+            0.9727997378311946,
+            2.3443022081953235,
+            -4.906945927842013
+        ],
+        "type": "ref_pose",
+        "ik_frame": "arm_right_grasp_inner",
+        "frame_id": "op_glass_tube",
+        "stage_name": "right-op_glass_tube-hold-glass-pose-ready",
+        "planner": "lin",
+        "description": "右手去试管操作台放置试管的就绪点位",
+        "pose": [
+            0.0,
+            0.0,
+            -0.065,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+        ],
+        "joint_values": [
+            -1.7115018505770545,
+            -1.5709980736676439,
+            -1.10659434822524,
+            0.9727997378311946,
+            2.3443022081953235,
+            -4.906945927842013
+        ]
+    },
+    "right-op_glass_tube-hold-glass-pose-leave": {
+        "group": "arm_right",
+        "planner": "lin",
+        "preWaypoint": "",
+        "ik_frame": "arm_right_grasp_inner",
+        "frame_id": "op_glass_tube",
+        "pose": [
+            0,
+            -0.12,
+            -0.065,
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "右手去试管操作台放置试管的撤离点位",
+        "type": "cartesian"
+    }
+}

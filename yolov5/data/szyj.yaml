@@ -1,0 +1,8 @@
+
+path: ././datasets/szyj
+train: train.txt
+val: val.txt
+test: test.txt
+
+nc: 3  # 类别数
+names: ['__background__', 'small_tube', 'big_tube']

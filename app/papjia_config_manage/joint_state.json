@@ -1,0 +1,318 @@
+{
+    "home_left": {
+        "group": "arm_left",
+        "planner": "ptp",
+        "preWaypoint": "",
+        "joint_names": [
+            "arm_left_joint1",
+            "arm_left_joint2",
+            "arm_left_joint3",
+            "arm_left_joint4",
+            "arm_left_joint5",
+            "arm_left_joint6"
+        ],
+        "joint_values": [
+            1.9812279536938833,
+            0.5206840757474683,
+            2.38235697567974,
+            -0.9922022264662563,
+            0.8700117255341334,
+            1.0151707594225017
+        ],
+        "description": "左臂home点",
+        "type": "joint"
+    },
+    "home_right": {
+        "group": "arm_right",
+        "planner": "ptp",
+        "preWaypoint": "",
+        "joint_names": [
+            "arm_right_joint1",
+            "arm_right_joint2",
+            "arm_right_joint3",
+            "arm_right_joint4",
+            "arm_right_joint5",
+            "arm_right_joint6"
+        ],
+        "joint_values": [
+            -1.6336979930367723,
+            -0.1943075056245287,
+            -2.5776069591003457,
+            1.28969359746869,
+            0.8333074513646926,
+            -3.141592653589793
+        ],
+        "description": "右臂home点",
+        "type": "joint"
+    },
+    "左臂-移液-1ml-枪头库-取枪头-准备": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "tip1",
+        "pose": [
+            "0",
+            0,
+            "0.1",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "左臂带着移液枪去1ml枪头库取枪头，上方预备点位",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-枪头库-取枪头-就绪": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "tip1",
+        "pose": [
+            "0",
+            0,
+            "0.01",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "左臂带着移液枪去1ml枪头库取枪头，取枪位置",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-枪头库-取枪头-撤退": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "tip1",
+        "pose": [
+            "0",
+            0,
+            "0.2",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "左臂带着移液枪去1ml枪头库取枪头，取到枪了，提前来，撤退",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-药液操作台-药液试管取液-准备": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "test_tube",
+        "pose": [
+            "0",
+            0,
+            "0.15",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去药液操作台，从药液试管中取1ml液体",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-药液操作台-药液试管取液-就绪": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "op_test_tube",
+        "pose": [
+            "0",
+            0,
+            "0.01",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去药液操作台，从药液试管中取1ml液体",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-药液操作台-药液试管取液-撤退": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "op_test_tube",
+        "pose": [
+            "0",
+            0,
+            "0.15",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去药液操作台，从药液试管中取1ml液体",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-药液操作台-玻璃试管-准备": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "op_glass_tube",
+        "pose": [
+            "0",
+            0,
+            "0.15",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去药液操作台，在玻璃试管内，进行取液或吐液操作",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-药液操作台-玻璃试管-就绪": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "op_glass_tube",
+        "pose": [
+            "0",
+            0,
+            "0.01",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去药液操作台，在玻璃试管内，进行取液或吐液操作",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-药液操作台-玻璃试管-撤退": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "op_glass_tube",
+        "pose": [
+            "0",
+            0,
+            "0.15",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去药液操作台，在玻璃试管内，进行取液或吐液操作",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-烧瓶操作台-烧瓶1-准备": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": "",
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "flask_op1",
+        "pose": [
+            "0",
+            0,
+            "0.4",
+            0,
+            0,
+            -0.7071067811865475,
+            0.7071067811865476
+        ],
+        "description": "在烧瓶操作台，从烧瓶内吸吐液",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-烧瓶操作台-烧瓶1-就绪": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": "",
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "flask_op1",
+        "pose": [
+            "0",
+            0,
+            "0.01",
+            0,
+            0,
+            -0.766044443118978,
+            0.6427876096865394
+        ],
+        "description": "在烧瓶操作台，从烧瓶内吸吐液",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-烧瓶操作台-烧瓶1-撤退": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "flask_op1",
+        "pose": [
+            "0",
+            0,
+            "0.4",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "在烧瓶操作台，从烧瓶内吸吐液",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-平板操作台--准备": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "dish_op",
+        "pose": [
+            "-0.05",
+            0,
+            "0.2",
+            0,
+            -0.08715574274765817,
+            0,
+            0.9961946980917455
+        ],
+        "description": "去平板操作台，往平板里加液体",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-平板操作台--就绪": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": null,
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "dish_op",
+        "pose": [
+            "-0.01",
+            0,
+            "0.05",
+            0,
+            -0.08715574274765817,
+            0,
+            0.9961946980917455
+        ],
+        "description": "去平板操作台，往平板里加液体",
+        "type": "cartesian"
+    },
+    "左臂-移液-1ml-平板操作台--撤退": {
+        "group": "arm_left",
+        "planner": "lin",
+        "preWaypoint": "",
+        "ik_frame": "arm_left_tip1",
+        "frame_id": "dish_op",
+        "pose": [
+            "-0.1",
+            "0.2",
+            "0.2",
+            0,
+            0,
+            0,
+            1
+        ],
+        "description": "去平板操作台，往平板里加液体",
+        "type": "cartesian"
+    }
+}

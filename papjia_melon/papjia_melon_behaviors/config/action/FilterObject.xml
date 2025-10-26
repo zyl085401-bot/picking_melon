@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="FilterObject">
+    <description>过滤物体</description>
+    <package_name>papjia_melon_behaviors</package_name>
+    <class_name>FilterObject</class_name>
+    <input name="objects" type="std::vector&lt;papjia_vision_interface::msg::Object&gt;"/>
+    <output name="filtered_object" type="papjia_vision_interface::msg::Object"/>
+  </Action>
+</root>

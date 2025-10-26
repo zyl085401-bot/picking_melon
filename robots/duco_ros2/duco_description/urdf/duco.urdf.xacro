@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="duco_urdf">
+
+	<!-- Use this if parameters are set from the launch file, otherwise delete -->
+	<xacro:arg name="prefix" default="" />
+
+	<xacro:arg name="use_mock_hardware" default="false" />
+	<xacro:arg name="mock_sensor_commands" default="false" />
+	<xacro:arg name="sim_gazebo_classic" default="false" />
+	<xacro:arg name="sim_gazebo" default="false" />
+	<xacro:arg name="use_calibration_board" default="false" />
+	<xacro:arg name="simulation_controllers" default="" />
+	<xacro:arg name="robot_ip" default="192.168.1.100" />
+	<xacro:arg name="duco_type" default="gcr5" />
+	<xacro:arg name="parent" default="world" />
+	<xacro:arg name="kinematic_calibration_yaml_file" default="$(find duco_description)/urdf/$(arg duco_type)/kinematic_calibration.yaml" />
+	<xacro:arg name="initial_values_yaml_file" default="$(find duco_description)/urdf/$(arg duco_type)/initial_values.yaml" />
+
+	<link name="$(arg parent)" />
+
+	<xacro:include filename="$(find duco_description)/urdf/$(arg duco_type).urdf.xacro" />
+
+	<xacro:duco_robot prefix="$(arg prefix)"
+					parent="$(arg parent)"
+					use_mock_hardware="$(arg use_mock_hardware)"
+					mock_sensor_commands="$(arg mock_sensor_commands)"
+					sim_gazebo_classic="$(arg sim_gazebo_classic)"
+					sim_gazebo="$(arg sim_gazebo)"
+					use_calibration_board="$(arg use_calibration_board)"
+					simulation_controllers="$(arg simulation_controllers)"
+					robot_ip="$(arg robot_ip)"
+					kinematic_calibration_yaml_file="$(arg kinematic_calibration_yaml_file)"
+					initial_values_yaml_file="$(arg initial_values_yaml_file)">
+
+		<origin xyz="0 0 0" rpy="0 0 0" />
+	</xacro:duco_robot>
+</robot>

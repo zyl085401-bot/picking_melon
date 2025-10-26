@@ -1,0 +1,267 @@
+{
+    "melon": {
+        "ready": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                1.5057304522805481,
+                -0.6659478293909563,
+                2.1747326078624942,
+                0.057805304826052194,
+                -1.5634310373514806,
+                -3.12712387409076
+            ],
+            "description": "手臂的默认过渡位姿",
+            "type": "joint"
+        },
+        "导航准备": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                1.6962855000132888,
+                -1.7219418400176054,
+                1.824043601259274,
+                1.0161306905110987,
+                -1.684940859875326,
+                -3.2286845832643105
+            ],
+            "description": "导航时手臂的默认过渡位姿",
+            "type": "joint"
+        },
+        "放到框内_就绪": {
+            "group": "arm",
+            "planner": "lin",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                4.437709062705822,
+                -0.13564698946499928,
+                2.3016005911899624,
+                -0.6000965567132104,
+                -1.563884822956999,
+                -5.020683939456968
+            ],
+            "description": "释放手爪的位姿",
+            "type": "joint"
+        },
+        "放到框内_准备": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                4.437726515998342,
+                -0.23237313661052503,
+                2.177612401128285,
+                -0.37938221950600737,
+                -1.563884822956999,
+                -5.0206664861644485
+            ],
+            "description": "放到框内的前置点位",
+            "type": "joint"
+        },
+        "观测点_左边": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "ik_frame": "gripper",
+            "frame_id": "base_link",
+            "pose": [
+                "0.879",
+                "0.223",
+                "1.395",
+                0.00439370608005722,
+                -0.12581928015920482,
+                0.034621817066265374,
+                0.9914391226243453
+            ],
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                1.7260067623128432,
+                -0.44585812216628634,
+                2.4691704728393975,
+                -2.276959588953839,
+                -1.6541165451823145,
+                -3.1628795578236124
+            ],
+            "description": "采摘时的左边观测点位",
+            "type": "cartesian"
+        },
+        "观测点_右边": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "ik_frame": "gripper",
+            "frame_id": "base_link",
+            "pose": [
+                "0.879",
+                "-0.225",
+                "1.395",
+                -0.004253178748303902,
+                -0.1217951038939445,
+                -0.034639361146286345,
+                0.9919415193434417
+            ],
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                0.11578563732436553,
+                -0.33744348717622996,
+                2.312887231589941,
+                -2.9050259132360416,
+                -0.30698058680683116,
+                -2.2345709854769513
+            ],
+            "description": "采摘时的右边观测点位",
+            "type": "cartesian"
+        },
+        "观测点_中间": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "ik_frame": "gripper",
+            "frame_id": "base_link",
+            "pose": [
+                "0.879",
+                "0.0",
+                "1.395",
+                0,
+                -0.12186934340514748,
+                0,
+                0.992546151641322
+            ],
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                0.48678978167373865,
+                -0.7203322888830996,
+                2.5445678763600936,
+                -2.3137829893688826,
+                -0.5404761094650838,
+                -2.7129223360074652
+            ],
+            "description": "采摘时的中间观测点位",
+            "type": "cartesian"
+        },
+        "观测点_左": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                2.949606435870417,
+                0.2617993877991494,
+                1.6057029118347832,
+                -2.3911010752322315,
+                -2.6179938779914944,
+                -3.508111796508602
+            ],
+            "description": "采摘时的左边观测点位",
+            "type": "joint"
+        },
+        "观测点_右": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                0.06789330790257943,
+                0.2977531703902326,
+                1.476199481336804,
+                -2.878571535314248,
+                -0.4651302456564888,
+                -2.060361181979306
+            ],
+            "description": "采摘时的右边观测点位",
+            "type": "joint"
+        },
+        "观测点_中": {
+            "group": "arm",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_joint1",
+                "arm_joint2",
+                "arm_joint3",
+                "arm_joint4",
+                "arm_joint5",
+                "arm_joint6"
+            ],
+            "joint_values": [
+                0.5305800926062761,
+                -0.6414085001079161,
+                2.5253168947105955,
+                -2.548180707911721,
+                -0.6407103684071184,
+                -2.5809928978492143
+            ],
+            "description": "采摘时的中间观测点位",
+            "type": "joint"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+string ip
+string device_name
+---
+sensor_msgs/Image image
+bool success

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="car">
+
+  <!-- Use this if parameters are set from the launch file, otherwise delete -->
+  <xacro:arg name="prefix" default="" />
+
+  <xacro:arg name="use_mock_hardware" default="false" />
+  <xacro:arg name="mock_sensor_commands" default="false" />
+  <xacro:arg name="sim_gazebo_classic" default="false" />
+  <xacro:arg name="sim_gazebo" default="false" />
+  <xacro:arg name="simulation_controllers" default="" />
+  <xacro:arg name="serial" default="/dev/ttyUSB0" />
+
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/car_macro.xacro"/>
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/car_macro.ros2_control.xacro"/>
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/car.gazebo.xacro" />
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/imu.xacro" />
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/imu.gazebo.xacro" />
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/camera.xacro" />
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/camera.gazebo.xacro" />
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/gps.xacro" />
+  <xacro:include filename="$(find nav2_gps_waypoint_follower_demo)/urdf/gps.gazebo.xacro" />
+
+
+
+  <!-- Load robot's macro with parameters -->
+  <!-- set prefix if multiple robots are used -->
+  <xacro:car prefix="$(arg prefix)" />
+  <xacro:car_ros2_control
+    name="car"
+    prefix="$(arg prefix)"
+    use_mock_hardware="$(arg use_mock_hardware)"
+    mock_sensor_commands="$(arg mock_sensor_commands)"
+    sim_gazebo_classic="$(arg sim_gazebo_classic)"
+    sim_gazebo="$(arg sim_gazebo)"
+    serial="$(arg serial)"/>
+  <xacro:car_gazebo prefix="$(arg prefix)" />
+
+  <link name="base_footprint" />
+  <joint name="joint_footprint" type="fixed">
+    <parent link="$(arg prefix)base_footprint"/>
+    <child link="$(arg prefix)base_link"/>
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <xacro:imu prefix="$(arg prefix)" parent="$(arg prefix)base_link">
+    <origin xyz="0 0 0.2" rpy="0 0 0"/>
+  </xacro:imu>
+  <xacro:imu_gazebo prefix="$(arg prefix)" />
+  
+  <xacro:camera prefix="$(arg prefix)front_" parent="$(arg prefix)base_link">
+    <origin xyz="0.65 0 0.70" rpy="0 0 0"/>
+  </xacro:camera>
+  <xacro:camera_gazebo prefix="$(arg prefix)front_" />
+
+  <xacro:gps prefix="$(arg prefix)" parent="$(arg prefix)base_link">
+    <origin xyz="0.45 -0.30 0.80" rpy="0 0 0"/>
+  </xacro:gps>
+  <xacro:gps_gazebo prefix="$(arg prefix)" />
+
+</robot>

@@ -1,0 +1,39 @@
+ <root BTCPP_format="4" >
+
+     <BehaviorTree ID="MainTree">
+        <Sequence name="root">
+            <SubTree ID="GoCaliHome"/>
+            <GetPosesFromFile filename="/home/sway/Desktop/target_poses" frame_id="/base_link" poses="{poses}"/>
+            <Script code=" index:=0 " />
+
+            <KeepRunningUntilFailure>
+                <Sequence name="sample">
+                    <GetPoseFromList poses="{poses}" index="{index}" pose="{pose}" />
+                    <Script code="planner_type:='LIN' " />
+                    <PoseToWaypoint pname="cali_pose" pose="{pose}" waypoint="{waypoint}" planner_type="{planner_type}"/>
+                    <WaypointAppend waypoint="{waypoint}" waypoints="{waypoints}"/>
+                    <SubTree ID="GenerateAndExecuteTraj" waypoints="{waypoints}" />
+                    <Script code=" index+=1 " />
+                </Sequence>
+            </KeepRunningUntilFailure>
+        </Sequence>
+     </BehaviorTree>
+
+    <BehaviorTree ID="GoCaliHome">
+        <Sequence name="root">
+            <GeneratePathFromXmlClient 
+                service_name="/papjia/path/generate/from_xml" 
+                xml_path="/home/sway/workspace/ros2/src/papjia_foshan_demo_config/waypoints/home.yaml" 
+                waypoints="{waypoints}" />
+            <SubTree ID="GenerateAndExecuteTraj" waypoints="{waypoints}" />
+        </Sequence>
+    </BehaviorTree>
+
+    <BehaviorTree ID="GenerateAndExecuteTraj">
+        <Sequence name="root">
+            <ArmPlanTrajectory service_name="/papjia/trajectory/plan" waypoints="{waypoints}" />
+            <ArmExecuteTrajectory service_name="/papjia/trajectory/execute" />
+        </Sequence>
+    </BehaviorTree>
+
+ </root>

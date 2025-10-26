@@ -1,0 +1,10 @@
+# 请求参数
+string color_topic    # 彩色图像话题名称
+string depth_topic    # 深度图像话题名称
+string camera_frame   # 相机坐标系名称
+string color_path     # 彩色图像路径
+string depth_path     # 深度图像路径
+---
+# 响应参数
+bool success          # 是否成功更新
+string message        # 状态信息

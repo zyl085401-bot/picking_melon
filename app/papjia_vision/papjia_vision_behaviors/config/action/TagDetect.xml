@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="TagDetect">
+    <description>利用二维码检测位姿</description>
+    <package_name>papjia_vision_behaviors</package_name>
+    <class_name>DetectTagsServiceClient</class_name>
+    <input name="service_name" type="std::string"/>
+    <input name="camera_info" type="sensor_msgs::msg::CameraInfo"/>
+    <input name="image" type="sensor_msgs::msg::Image"/>
+    <output name="pose" type="geometry_msgs::msg::PoseStamped"/>
+    <output name="success" type="bool"/>
+  </Action>
+</root>

@@ -1,0 +1,5 @@
+./images/val/slots_1_005.jpg
+./images/val/slots_2_024.jpg
+./images/val/slots_1_006.jpg
+./images/val/slots_1_002.jpg
+./images/val/slots_1_003.jpg

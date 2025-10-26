@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="duco_robot">
+
+  <xacro:macro name="duco_robot" params="prefix 
+    use_mock_hardware 
+    mock_sensor_commands
+    sim_gazebo_classic
+    sim_gazebo
+    use_calibration_board
+    simulation_controllers
+    robot_ip
+    parent
+    *origin
+    kinematic_calibration_yaml_file
+    initial_values_yaml_file
+    ">
+
+    <xacro:include filename="$(find duco_description)/urdf/gcr5/gcr5_macro.xacro"/>
+    <xacro:include filename="$(find duco_description)/urdf/gcr5/gcr5_macro.ros2_control.xacro"/>
+
+    <!-- Load robot's macro with parameters -->
+    <!-- set prefix if multiple robots are used -->
+    <xacro:gcr5 prefix="${prefix}" parent="${parent}" use_calibration_board="${use_calibration_board}" kinematic_calibration_yaml_file="${kinematic_calibration_yaml_file}" >
+      <xacro:insert_block name="origin" />
+    </xacro:gcr5>
+
+    <xacro:gcr5_ros2_control
+      name="${prefix}gcr5"
+      prefix="${prefix}"
+      use_mock_hardware="${use_mock_hardware}"
+      mock_sensor_commands="${mock_sensor_commands}"
+      sim_gazebo_classic="${sim_gazebo_classic}"
+      sim_gazebo="${sim_gazebo}"
+      simulation_controllers="${simulation_controllers}"
+      robot_ip="${robot_ip}"
+      initial_values_yaml_file="${initial_values_yaml_file}" />
+
+  </xacro:macro>
+</robot>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+  <xacro:macro name="gcr5" params="prefix parent use_calibration_board *origin kinematic_calibration_yaml_file">
+    
+    <xacro:property name="params" value="${xacro.load_yaml(kinematic_calibration_yaml_file)}" />
+    
+    <xacro:macro name="link" params="prefix name *inertial">
+        <link name="${prefix}${name}">
+          <xacro:insert_block name="inertial" />
+          <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+              <mesh filename="package://duco_description/meshes/gcr5/visual/${name}.stl" />
+            </geometry>
+            <material name="">
+              <color rgba="0.73333 0.78039 0.83922 1" />
+            </material>
+          </visual>
+          <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+              <mesh filename="package://duco_description/meshes/gcr5/collision/${name}.stl" />
+            </geometry>
+          </collision>
+        </link>
+    </xacro:macro>
+
+    <xacro:macro name="joint" params="name parent child *origin *axis *limit" >
+      <joint name="${name}" type="revolute">
+        <parent link="${parent}" />
+        <child link="${child}" />
+        <xacro:insert_block name="origin" />
+        <xacro:insert_block name="axis" />
+        <xacro:insert_block name="limit" />
+      </joint>
+    </xacro:macro>
+
+    <joint name="${prefix}joint_base" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="${prefix}base_link" />
+    </joint>
+
+    <xacro:link prefix="${prefix}" name="base_link">
+      <inertial>
+        <origin xyz="-5.7382E-18 0.011758 0.021995" rpy="0 0 0" />
+        <mass value="4.657" />
+        <inertia ixx="1.0752E-05" ixy="7.523E-09" ixz="1.0743E-08" iyy="1.0133197E-05" iyz="4.49349E-07" izz="7.870754E-05" />
+      </inertial>
+    </xacro:link>
+    
+    <xacro:link prefix="${prefix}" name="link_1">
+      <inertial>
+        <origin xyz="0.000021 0.004967 -0.01790" rpy="0 0 0" />
+        <mass value="4.657" />
+        <inertia ixx="1.0752E-05" ixy="7.523E-09" ixz="1.0743E-08" iyy="1.0133197E-05" iyz="4.49349E-07" izz="7.870754E-05" />
+      </inertial>
+    </xacro:link>
+
+    <xacro:link prefix="${prefix}" name="link_2">
+      <inertial>
+        <origin xyz="0.21612 -1.8576E-16 0.014189" rpy="0 0 0" />
+        <mass value="3.3497" />
+        <inertia ixx="0.0069086" ixy="8.2574E-08" ixz="9.7307E-18" iyy="0.022883" iyz="2.8358E-18" izz="0.024046" />
+      </inertial>
+    </xacro:link>
+
+    <xacro:link prefix="${prefix}" name="link_3">
+      <inertial>
+        <origin xyz="0.10177 2.95E-08 -0.11478" rpy="0 0 0" />
+        <mass value="2.9857" />
+        <inertia ixx="0.0035253" ixy="-2.5122E-08" ixz="0.00038746" iyy="0.010268" iyz="2.8848E-09" izz="0.010609" />
+      </inertial>
+    </xacro:link>
+
+    <xacro:link prefix="${prefix}" name="link_4">
+      <inertial>
+        <origin xyz="-7.7387E-07 0.0063161 -0.0061589" rpy="0 0 0" />
+        <mass value="0.37228" />
+        <inertia ixx="0.00048225" ixy="5.8826E-09" ixz="2.1987E-08" iyy="0.00055656" iyz="5.1696E-05" izz="0.00041144" />
+      </inertial>
+    </xacro:link>
+
+    <xacro:link prefix="${prefix}" name="link_5">
+      <inertial>
+        <origin xyz="7.731E-07 -0.008004 0.00087192" rpy="0 0 0" />
+        <mass value="0.32906" />
+        <inertia ixx="0.00034489" ixy="2.4698E-09" ixz="-2.3229E-08" iyy="0.00042119" iyz="-3.743E-05" izz="0.00034777" />
+      </inertial>
+    </xacro:link>
+
+    <xacro:link prefix="${prefix}" name="link_6">
+      <inertial>
+        <origin xyz="-2.7264E-05 -0.0031969 -0.013722" rpy="0 0 0" />
+        <mass value="0.19147" />
+        <inertia ixx="0.00010193" ixy="-1.7257E-10" ixz="9.7552E-19" iyy="0.00010193" iyz="-7.9276E-20" izz="0.00018851" />
+      </inertial>
+    </xacro:link>
+
+    <xacro:joint name="${prefix}joint1" parent="${prefix}base_link" child="${prefix}link_1">
+      <origin xyz="${params.kin_cali.joint1.xyz}" rpy="${params.kin_cali.joint1.rpy}" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283185" upper="6.283185" effort="250" velocity="3.926" />
+    </xacro:joint>
+
+    <xacro:joint name="${prefix}joint2" parent="${prefix}link_1" child="${prefix}link_2">
+      <origin xyz="${params.kin_cali.joint2.xyz}" rpy="${params.kin_cali.joint2.rpy}" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283185" upper="6.283185" effort="250" velocity="3.926" />
+    </xacro:joint>
+
+    <xacro:joint name="${prefix}joint3" parent="${prefix}link_2" child="${prefix}link_3">
+      <origin xyz="${params.kin_cali.joint3.xyz}" rpy="${params.kin_cali.joint3.rpy}" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283185" upper="6.283185" effort="150" velocity="3.926" />
+    </xacro:joint>
+
+    <xacro:joint name="${prefix}joint4" parent="${prefix}link_3" child="${prefix}link_4">
+      <origin xyz="${params.kin_cali.joint4.xyz}" rpy="${params.kin_cali.joint4.rpy}" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283185" upper="6.283185" effort="50" velocity="3.926" />
+    </xacro:joint>
+
+    <xacro:joint name="${prefix}joint5" parent="${prefix}link_4" child="${prefix}link_5">
+      <origin xyz="${params.kin_cali.joint5.xyz}" rpy="${params.kin_cali.joint5.rpy}" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283185" upper="6.283185" effort="50" velocity="3.926" />
+    </xacro:joint>
+
+    <xacro:joint name="${prefix}joint6" parent="${prefix}link_5" child="${prefix}link_6">
+      <origin xyz="${params.kin_cali.joint6.xyz}" rpy="${params.kin_cali.joint6.rpy}" />
+      <axis xyz="0 0 1" />
+      <limit lower="-6.283185" upper="6.283185" effort="50" velocity="3.926" />
+    </xacro:joint>
+
+  <xacro:if value="${use_calibration_board}">
+    <xacro:include filename="calibration_board.urdf"/>
+
+    <joint name="joint7" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="link_6" />
+  		<child link="calibration_board_link" />
+    </joint>
+  </xacro:if>
+  
+  </xacro:macro>
+</robot>

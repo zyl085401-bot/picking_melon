@@ -1,0 +1,5 @@
+handeye_calibration:
+  ros__parameters:
+    save_path: "/workspace/src/papjia_melon/papjia_melon_calibration/pose.csv"
+    cali_type: "eye_in_hand"
+    skip_indices: [1, 2, 4]

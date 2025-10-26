@@ -1,0 +1,19 @@
+label:
+  - color: "#000000"
+    name: __background__
+  - color: "#e0e7c8"
+    name: tofu
+  - color: "#a0c69d"
+    name: plate
+  - color: "#8f9a79"
+    name: palm
+  - color: "#faeeef"
+    name: pen
+  - color: "#de9aa1"
+    name: usb
+  - color: "#f9f4ef"
+    name: tissue
+  - color: "#d6b392"
+    name: data_cable
+  - color: "#c49363"
+    name: speaker

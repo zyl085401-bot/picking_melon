@@ -1,0 +1,24 @@
+<root>
+	<BehaviorTree ID='TestCropImage'>
+		<Sequence>
+			<ImageGetFromTopic topic_name='/camera1/rgb/image_raw' image='{image_msg}' />
+			<CropImageMsg image_input='{image_msg}' x1='723' y1='676' x2='1336' y2='1165' image_output='{cropped_image}' />
+			<ImageSaveToFile image='{cropped_image}'  file_name='/workspace/images/test.jpg' />
+			<MaskDetect service_name='/papjia_vision/service_image_segment' image='{cropped_image}' max_num='50' min_score='0.75' allowed_categories='["test_tube"]' objs_num='{objs_num}' objects='{objs2d}' />
+		</Sequence>
+	</BehaviorTree>
+	<BehaviorTree ID='TestImageSegment'>
+		<Sequence>
+			<ImageGetFromTopic topic_name='/camera1/rgb/image_raw' image='{image_msg}' />
+			<CropImageMsg image_input='{image_msg}' x1='723' y1='676' x2='1336' y2='1165' image_output='{cropped_image}' />
+			<MaskDetect service_name='/papjia_vision/service_image_segment' image='{cropped_image}' max_num='50' min_score='0.75' allowed_categories='["test_tube"]' objs_num='{objs_num}' objects='{objs2d}' />
+		</Sequence>
+	</BehaviorTree>
+	<BehaviorTree ID='TestFetchCamera'>
+		<Sequence>
+			<FetchCamera service_name='/Vzense/fetch_camera' fetch_camera_info='true' fetch_color='true' fetch_depth='true' color='{color_msg}' depth='{depth_msg}' camera_info='{camara_info_msg}' />
+			<ImageSaveToFile image='{color_msg}'  file_name='/workspace/images/color.png' />
+			<ImageSaveToFile image='{depth_msg}'  file_name='/workspace/images/depth.png' />
+		</Sequence>
+	</BehaviorTree>
+</root>

@@ -1,0 +1,30 @@
+papjia_joy_control_node:
+  ros__parameters:
+    AXIS_FORWARD_BACKWARD: 1 # 轴控前进后退
+    AXIS_LEFT_RIGHT: 0 # 轴孔左右移动（差动轮无效）
+    KEY_TURN_LEFT: 4 # 键控左转
+    KEY_TURN_RIGHT: 0 # 键控右转
+    KEY_SPEED_UP: 6 # 键控加速
+
+    KEY_PANTILT_ON: 7 # 键控云台Flag
+    KEY_PAN_LEFT: 3 # 键控云台左转
+    KEY_PAN_RIGHT: 1 # 键控云台右转
+    KEY_TILT_UP: 4 # 键控云台上仰
+    KEY_TILT_DOWN: 0 # 键控云台低头
+
+    AXIS_EV_UP_DOWN: 3 # 轴控升降机运动
+
+    KEY_STOP_PRESS: 9 # 键控开启急停
+    KEY_STOP_RELEASE: 8 # 键控关闭急停
+
+    KEY_PAW_OPEN: 10 # 键控打开手抓
+    KEY_PAW_CLOSE: 11 # 键控闭合手抓
+
+    low_vel_x: 0.1 # 前后低速
+    high_vel_x: 0.3 # 前后高速
+    low_vel_y: 0.1 # 左右低速（差动轮无效）
+    high_vel_y: 0.3 # 左右高速（差动轮无效）
+    low_vel_yaw: 0.15 # 低速旋转
+    high_vel_yaw: 0.5 # 高速旋转
+    pantilt_increment_: 3.0 # 一次云台转动角度（°）
+    ev_increment_: 0.03 # 一次升降移动距离

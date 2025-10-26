@@ -1,0 +1,6 @@
+serial_reader:
+  ros__parameters:
+    port: '/dev/papjia_gps'
+    baudrate: 115200
+    defualt_latitude: 23.14
+    defualt_longitude: 113.29

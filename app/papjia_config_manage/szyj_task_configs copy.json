@@ -1,0 +1,56 @@
+{
+    "测试移液": [
+        {
+            "objectType": "pipette",
+            "name": "home_left"
+        },
+        {
+            "objectType": "pipette",
+            "name": "home_right"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-枪头库-取枪头-准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-枪头库-取枪头-就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-枪头库-取枪头-撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-药液试管取液-准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-药液试管取液-就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-药液操作台-药液试管取液-撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--准备"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--就绪"
+        },
+        {
+            "objectType": "pipette",
+            "name": "左臂-移液-1ml-平板操作台--撤退"
+        },
+        {
+            "objectType": "pipette",
+            "name": "home_left"
+        },
+        {
+            "objectType": "pipette",
+            "name": "home_right"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+vision_gloabl:
+  ros__parameters:
+    model_type: "yolo"
+    resource_dir: "/workspace/install/papjia_melon_config/share/papjia_melon_config/resource"
+    model_path: "weights/simulated_melon.pt"
+    labels: ["bitter"]
+    rect: [10, 10, 1270, 710]
+    device: "0"
+    sample_image: images/test/3_hand_rgb.png
+    channels: rgb 
+    service_topic: "/papjia/vision/global/segment"
+    result_image_topic: "/papjia/vision/global/segment/result"
+    with_mask: True
+    result_frame: camera_base_color_optical_frame
+    prepare_times: 1
+
+vision_local:
+  ros__parameters:
+    model_type: "yolo"
+    resource_dir: "/workspace/install/papjia_melon_config/share/papjia_melon_config/resource"
+    model_path: "weights/simulated_melon.pt"
+    labels: ["M1", "M2", "M3"]
+    rect: [0, 0, 1280, 720]
+    device: "0"
+    sample_image: images/test/3_hand_rgb.png
+    channels: rgb 
+    service_topic: "/papjia/vision/local/segment"
+    result_image_topic: "/papjia/vision/local/segment/result"
+    with_mask: True
+    result_frame: camera_hand_color_optical_frame
+    prepare_times: 1

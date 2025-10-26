@@ -1,0 +1,29 @@
+services:
+  papjia_config_manage:
+    build:
+      context: ../..
+      dockerfile: papjia_config_manage/docker/Dockerfile
+    container_name: papjia_config_manage
+    volumes:
+      - ../../papjia_config_manage:/workspace/src/papjia_config_manage
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    network_mode: host
+    ipc: host
+    stdin_open: true  # 允许交互
+    tty: true  # 保持终端运行
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      # - NVIDIA_DRIVER_CAPABILITIES=all
+      # - NVIDIA_VISIBLE_DEVICES=all  # 显示所有 GPU
+    # runtime: nvidia
+    
+    command: bash -c "exec bash"  # 启动 bash 并加载 ROS 2 环境
+  
+  papjia_config_manage_flask:
+    container_name: papjia_config_manage_flask
+    image: docker-papjia_config_manage
+    network_mode: "host"

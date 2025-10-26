@@ -1,0 +1,43 @@
+位姿文件: "/home/yw/workspace/papjia_config_manage/config/poses.json"
+端点文件: "/home/yw/workspace/papjia_szyj/papjia_szyj_config/config/szyj_waypoint_configs.json"
+区域:
+  药液试管槽:
+    rows: 4
+    cols: 5
+    vertices:
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+  玻璃试管槽:
+    rows: 4
+    cols: 5
+    vertices:
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+  烧瓶槽:
+    rows: 4
+    cols: 5
+    vertices:
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+  1ml枪头槽:
+    rows: 4
+    cols: 5
+    vertices:
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+  10ml枪头槽:
+    rows: 4
+    cols: 5
+    vertices:
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]
+      - [glass_tube, 左臂-玻璃试管_1_1-取玻璃试管-就绪]

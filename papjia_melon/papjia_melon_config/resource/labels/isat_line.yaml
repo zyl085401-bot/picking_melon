@@ -1,0 +1,7 @@
+label:
+  - color: "#000000"
+    name: __background__
+  - color: "#ef2929"
+    name: "bobbin"
+  - color: "#204a87"
+    name: "line"

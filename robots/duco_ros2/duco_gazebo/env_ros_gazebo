@@ -1,0 +1,10 @@
+# 此文件放在工作空间中，和install同级。
+# 运行前先source此文件。
+source install/setup.bash
+source /usr/share/gazebo/setup.bash
+# Extract paths from AMENT_PREFIX_PATH and add '/share' to each, then add to GAZEBO_MODEL_PATH
+if [ ! -z "$AMENT_PREFIX_PATH" ]; then
+  for path in $(echo $AMENT_PREFIX_PATH | tr ":" "\n"); do
+    export GAZEBO_MODEL_PATH="$GAZEBO_MODEL_PATH:$path/share"
+  done
+fi

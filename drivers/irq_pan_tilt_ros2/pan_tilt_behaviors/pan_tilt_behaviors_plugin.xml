@@ -1,0 +1,6 @@
+<library path="pan_tilt_behaviors">
+   <class name="papjia/pantilt_behaviors" type="papjia::behaviors::PanTiltBehaviorLoader" base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+      <description>云台相关的行为插件</description>
+   </class>
+</library>
+  

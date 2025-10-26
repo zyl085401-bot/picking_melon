@@ -1,0 +1,12 @@
+<!--
+ * @Descripttion: 说明文档
+ * @version: 1.0
+ * @Author: 崔译文
+ * @Date: 2024-04-08 11:20:45
+ * @LastEditors: 崔译文
+ * @LastEditTime: 2024-04-08 11:21:32
+-->
+## 运行仿真程序
+```
+sh papjia_line_tracing/start_sim.sh
+```

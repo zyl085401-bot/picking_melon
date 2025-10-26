@@ -1,0 +1,6 @@
+--trusted-host mirrors.aliyun.com
+--index-url http://mirrors.aliyun.com/pypi/simple/
+numpy==1.26.4
+transformations
+flask
+flask_cors

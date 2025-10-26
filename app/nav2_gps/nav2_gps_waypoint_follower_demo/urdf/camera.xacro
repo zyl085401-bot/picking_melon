@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <xacro:macro name="camera" params="prefix parent *origin">
+        <!-- 相机安装关节 -->
+        <joint name="${prefix}camera_mount_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}camera_link"/>
+            <xacro:insert_block name="origin" />
+        </joint>
+
+        <!-- 相机主体链接 -->
+        <link name="${prefix}camera_link">
+            <collision>
+                <origin xyz="0.003 0.065 0.007" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.012 0.132 0.020"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <!-- 相机深度帧关节 -->
+        <joint name="${prefix}camera_depth_joint" type="fixed">
+            <origin xyz="0.005 0.028 0.013" rpy="-1.57 0 -1.57"/>
+            <parent link="${prefix}camera_link"/>
+            <child link="${prefix}camera_depth_frame"/>
+        </joint>
+
+        <!-- 相机深度帧链接 -->
+        <link name="${prefix}camera_depth_frame"/>
+
+        <!-- 相机深度光学帧关节 -->
+        <joint name="${prefix}camera_depth_optical_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <parent link="${prefix}camera_depth_frame"/>
+            <child link="${prefix}camera_depth_optical_frame"/>
+        </joint>
+
+        <!-- 相机深度光学帧链接 -->
+        <link name="${prefix}camera_depth_optical_frame"/>
+    </xacro:macro>
+</robot>

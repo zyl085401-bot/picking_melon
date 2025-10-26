@@ -1,0 +1,7 @@
+<library path="papjia_vision_behaviors">
+    <class name="papjia/vision_behaviors" type="papjia::behaviors::VisionBehaviorLoader"
+       base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+       <description>视觉相关的行为插件</description>
+    </class>
+  </library>
+  

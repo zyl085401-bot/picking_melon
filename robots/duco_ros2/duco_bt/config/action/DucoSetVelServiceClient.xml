@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="DucoSetVel">
+    <description>No description provided.</description>
+    <package_name>duco_bt</package_name>
+    <class_name>DucoSetVelServiceClient</class_name>
+    <input name="service_name" type="std::string"/>
+    <input name="vel" type="double"/>
+    <input name="wait_for_server_timeout" type="double"/>
+    <input name="result_timeout" type="double"/>
+    <output name="success" type="bool"/>
+  </Action>
+</root>

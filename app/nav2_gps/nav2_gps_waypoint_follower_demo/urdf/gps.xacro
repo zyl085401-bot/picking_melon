@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <xacro:macro name="gps" params="prefix parent *origin">
+        <joint name="${prefix}gps_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="${prefix}gps_link"/>
+            <xacro:insert_block name="origin" />
+        </joint>
+        <link name="${prefix}gps_link">
+        </link>
+    </xacro:macro>
+</robot>

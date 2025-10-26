@@ -1,0 +1,129 @@
+<root BTCPP_format="4">
+<BehaviorTree ID="pickup_pipette10">
+    <Sequence name="pickup_pipette10">
+        <Sequence name="align_to_quick_mount">
+            <InitMTCTask task_name="align_to_quick_mount" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{准备对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette10" position="0.0,-0.05,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{准备对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{准备对接_planner}" planning_group="arm_left" stage_name="准备对接" ik_frame="arm_left_quick_change_end" pose="{准备对接_pose}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette10" position="0.0,0.0,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{对接_planner}" planning_group="arm_left" stage_name="对接" ik_frame="arm_left_quick_change_end" pose="{对接_pose}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+        <Sequence name="lift">
+            <InitMTCTask task_name="lift" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{将移液枪提起来_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette10" position="0.0,0.0,0.2" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{将移液枪提起来_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{将移液枪提起来_planner}" planning_group="arm_left" stage_name="将移液枪提起来" ik_frame="arm_left_quick_change_end" pose="{将移液枪提起来_pose}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+    </Sequence>
+</BehaviorTree>
+
+<BehaviorTree ID="place_pipette10">
+    <Sequence name="place_pipette10">
+        <Sequence name="从上往下将移液枪放到架子上">
+            <InitMTCTask task_name="从上往下将移液枪放到架子上" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{将移液枪提起来_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette10" position="0.0,0.0,0.2" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{将移液枪提起来_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{将移液枪提起来_planner}" planning_group="arm_left" stage_name="将移液枪提起来" ik_frame="arm_left_quick_change_end" pose="{将移液枪提起来_pose}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette10" position="0.0,0.0,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{对接_planner}" planning_group="arm_left" stage_name="对接" ik_frame="arm_left_quick_change_end" pose="{对接_pose}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+        <Sequence name="撤退">
+            <InitMTCTask task_name="撤退" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{准备对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette10" position="0.0,-0.05,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{准备对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{准备对接_planner}" planning_group="arm_left" stage_name="准备对接" ik_frame="arm_left_quick_change_end" pose="{准备对接_pose}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+    </Sequence>
+</BehaviorTree>
+
+<BehaviorTree ID="place_pipette1">
+    <Sequence name="place_pipette1">
+        <Sequence name="从上往下将移液枪放到架子上">
+            <InitMTCTask task_name="从上往下将移液枪放到架子上" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{将移液枪提起来_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette1" position="0.0,0.0,0.2" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{将移液枪提起来_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{将移液枪提起来_planner}" planning_group="arm_left" stage_name="将移液枪提起来" ik_frame="arm_left_quick_change_end" pose="{将移液枪提起来_pose}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette1" position="0.0,0.0,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{对接_planner}" planning_group="arm_left" stage_name="对接" ik_frame="arm_left_quick_change_end" pose="{对接_pose}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+        <Sequence name="撤退">
+            <InitMTCTask task_name="撤退" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{准备对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette1" position="0.0,-0.05,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{准备对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{准备对接_planner}" planning_group="arm_left" stage_name="准备对接" ik_frame="arm_left_quick_change_end" pose="{准备对接_pose}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+    </Sequence>
+</BehaviorTree>
+
+<BehaviorTree ID="pickup_pipette1">
+    <Sequence name="pickup_pipette1">
+        <Sequence name="align_to_quick_mount">
+            <InitMTCTask task_name="align_to_quick_mount" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{准备对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette1" position="0.0,-0.05,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{准备对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{准备对接_planner}" planning_group="arm_left" stage_name="准备对接" ik_frame="arm_left_quick_change_end" pose="{准备对接_pose}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{对接_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette1" position="0.0,0.0,0.0" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{对接_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{对接_planner}" planning_group="arm_left" stage_name="对接" ik_frame="arm_left_quick_change_end" pose="{对接_pose}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+        <Sequence name="lift">
+            <InitMTCTask task_name="lift" task="{task}"/>
+            <SetupCurrentState task="{task}"/>
+            <CreatePlanner planner_type="lin" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{将移液枪提起来_planner}"/>
+            <GetPoseStampedMsg frame_id="pipette1" position="0.0,0.0,0.2" quaternion="0.0,0.0,0.0,1.0" pose_stamped="{将移液枪提起来_pose}"/>
+            <SetupMoveToPose task="{task}" planner="{将移液枪提起来_planner}" planning_group="arm_left" stage_name="将移液枪提起来" ik_frame="arm_left_quick_change_end" pose="{将移液枪提起来_pose}"/>
+            <CreatePlanner planner_type="ptp" max_velocity_scaling_factor="0.1" max_acceleration_scaling_factor="0.1" planner="{从初始位置出发_planner}"/>
+            <GetJointStateConfig service_name="/handle_joint_state_config" state_name="home_left" joint_state="{home_left}"/>
+            <SetupMoveToJointState task="{task}" planner="{从初始位置出发_planner}" planning_group="arm_left" stage_name="从初始位置出发" joint_state="{home_left}"/>
+            <PlanMTCTask task="{task}"/>
+            <ExecuteMTCTask task="{task}"/>
+        </Sequence>
+    </Sequence>
+</BehaviorTree>
+</root>

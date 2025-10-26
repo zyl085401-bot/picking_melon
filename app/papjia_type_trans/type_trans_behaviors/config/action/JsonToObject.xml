@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="JsonToObject">
+    <description>Json转物体消息</description>
+    <package_name>type_trans_behaviors</package_name>
+    <class_name>JsonToObjectAction</class_name>
+    <input name="json_object" type="std::string"/>
+    <output name="result_object" type="papjia_vision_interface::msg::Object"/>
+  </Action>
+</root>

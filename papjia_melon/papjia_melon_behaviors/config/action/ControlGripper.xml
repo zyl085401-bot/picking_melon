@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="ControlGripper">
+    <description>夹爪控制</description>
+    <package_name>papjia_melon_behaviors</package_name>
+    <class_name>ControlGripperClient</class_name>
+    <input name="service_name" type="std::string"/>
+    <input name="cmd" type="std::string"/>
+  </Action>
+</root>

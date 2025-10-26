@@ -1,0 +1,11 @@
+sensor_msgs/Image image
+uint64 max_num
+float64 min_score
+uint64[] allowed_roi
+string[] allowed_categories
+---
+uint64 objs_num
+bool with_mask
+sensor_msgs/Image mask
+papjia_vision_interface/Objects2d objects
+bool success

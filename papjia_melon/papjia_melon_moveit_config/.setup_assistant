@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: papjia_melon_config
+    relative_path: description/robot.urdf.xacro
+  srdf:
+    relative_path: config/melon_grasper.srdf
+  package_settings:
+    author_name: ygao
+    author_email: ygao9795@gmail.com
+    generated_timestamp: 1716980343
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

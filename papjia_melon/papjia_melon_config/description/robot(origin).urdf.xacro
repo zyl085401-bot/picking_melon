@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="melon_grasper">
+
+    <xacro:arg name="use_mock_hardware" default="false" />
+    <xacro:arg name="mock_sensor_commands" default="false" />
+    <xacro:arg name="sim_gazebo_classic" default="false" />
+    <xacro:arg name="sim_gazebo" default="false" />
+    <xacro:arg name="simulation_controllers" default="" />
+    <xacro:arg name="serial" default="/dev/ttyACM0" />
+    <xacro:arg name="robot_ip" default="192.168.1.10" />
+    <xacro:arg name="has_arm" default="true" />
+
+    <link name="base_footprint">
+        <visual>
+            <origin xyz="0 0 3.0" rpy="0 0 0" />
+            <geometry>
+                <box size="4 2 0.01" />
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 0.3" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 2.0" rpy="0 0 0" />
+            <geometry>
+                <box size="4 2 0.01" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="joint_base_footprint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="base_footprint" />
+        <child link="base_link" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="arm_base_parent" />
+    <joint name="joint_arm_base_parent" type="fixed">
+        <origin xyz="0.3 0 0.75" rpy="0 0 0" />
+        <parent link="base_footprint" />
+        <child link="arm_base_parent" />
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <!-- 机器人基座 -->
+    <xacro:include filename="$(find papjia_melon_config)/description/car.urdf.xacro" />
+    <xacro:car />
+
+    <xacro:if value="$(arg has_arm)">
+        <!-- duco机械臂 gcr10-1300 -->
+        <xacro:include filename="$(find duco_description)/urdf/gcr10.urdf.xacro" />
+        <xacro:duco_robot 
+            prefix="arm_" parent="arm_base_parent"
+            use_mock_hardware="$(arg use_mock_hardware)"
+            mock_sensor_commands="$(arg mock_sensor_commands)"
+            sim_gazebo_classic="$(arg sim_gazebo_classic)"
+            sim_gazebo="$(arg sim_gazebo)"
+            use_calibration_board="false"
+            simulation_controllers="$(arg simulation_controllers)"
+            robot_ip="$(arg robot_ip)"
+            kinematic_calibration_yaml_file="$(find papjia_melon_config)/config/arm_kin_cali.yaml"
+            initial_values_yaml_file="$(find papjia_melon_config)/config/arm_init_values.yaml">
+            <origin xyz="0 0 0.0" rpy="0 0 -1.5707" />
+        </xacro:duco_robot>
+        
+        <!-- 末端工具 -->
+        <link name="eef">
+            <inertial>
+                <origin xyz="0.15462 0.006257 0.04846" rpy="0 0 0" />
+                <mass value="1.24337" />
+                <inertia ixx="0.0008" ixy="0" ixz="0" iyy="0.00130" iyz="0" izz="0.00142" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://papjia_melon_config/description/meshes/end_link.stl" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="package://papjia_melon_config/description/meshes/end_link.stl" />
+                </geometry>
+            </collision>
+        </link>
+        <joint name="joint_arm_end" type="fixed">
+            <origin xyz="0 0 0" rpy="0 ${-pi/2} ${-pi/2}" />
+            <parent link="arm_link_6" />
+            <child link="eef" />
+            <axis xyz="0 0 0" />
+        </joint>
+        <link name="gripper" />
+        <joint name="joint_arm_gripper" type="fixed">
+            <origin xyz="0.2815 0.00079097 -0.043" rpy="0 0 0" />
+            <parent link="eef" />
+            <child link="gripper" />
+            <axis xyz="0 0 0" />
+        </joint>
+        
+        <link name="shears" />
+        <joint name="joint_arm_shears" type="fixed">
+            <origin xyz="0 0 0.18" rpy="0 0 0" />
+            <parent link="gripper" />
+            <child link="shears" />
+            <axis xyz="0 0 0" />
+        </joint>
+        <link name="camera_hand_link" />
+        <joint name="joint_camera_hand" type="fixed">
+            <!-- old -->
+            <!-- <origin xyz="0.037713 0.008128 0.179358" rpy="0.668514182156516 -1.5387324614800286 -2.2183753249022855" /> -->
+            <!-- 0610 新标定结果好一些 -->
+            <origin xyz="0.037639 0.006959 0.198392" rpy="0.6487846781423743 -1.5407060692853054 -2.207027941776149" />
+            <parent link="arm_link_6" />
+            <child link="camera_hand_link" />
+            <axis xyz="0 0 0" />
+        </joint>
+    </xacro:if>
+
+    <!-- <link name="camera_base_link" />
+    <joint name="joint_camera_base" type="fixed">
+        <origin xyz="0.32866153 -0.058396 0.1583529" rpy="-0.00553531516 -0.52320438 0.04919228" />
+        <parent link="base_link" />
+        <child link="camera_base_link" />
+        <axis xyz="0 0 0" />
+    </joint> -->
+</robot>

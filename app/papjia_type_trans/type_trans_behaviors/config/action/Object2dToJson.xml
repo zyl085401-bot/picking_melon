@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="Object2dToJson">
+    <description>将图像识别结果转为json格式数据</description>
+    <package_name>type_trans_behaviors</package_name>
+    <class_name>Objects2dToJsonAction</class_name>
+    <input name="objects" type="papjia_vision_interface::msg::Objects2d"/>
+    <output name="json_result" type="std::string"/>
+  </Action>
+</root>

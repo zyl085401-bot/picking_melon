@@ -1,0 +1,6 @@
+papjia_melon_device:
+  ros__parameters:
+    service_gripper_control: "/papjia/melon/device/gripper/control"
+    service_shears_control: "/papjia/melon/device/shears/control"
+    serial_gripper: "/dev/papjia_gripper"
+    serial_shears: "/dev/papjia_shears"

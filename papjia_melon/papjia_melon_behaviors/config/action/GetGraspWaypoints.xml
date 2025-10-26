@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="GetGraspWaypoints">
+    <description>获取抓取点位</description>
+    <package_name>papjia_melon_behaviors</package_name>
+    <class_name>GetGraspWaypoints</class_name>
+    <input name="filtered_object" type="papjia_vision_interface::msg::Object"/>
+    <input name="pick_roll" type="double"/>
+    <input name="pick_pitch" type="double"/>
+    <input name="pick_yaw" type="double"/>
+    <input name="group" type="std::string"/>
+    <input name="frame_id" type="std::string"/>
+    <input name="ik_frame" type="std::string"/>
+    <input name="planner" type="std::string"/>
+    <input name="max_velocity_scaling_factor" type="double"/>
+    <input name="max_acceleration_scaling_factor" type="double"/>
+    <output name="pre_grasp_waypoint" type="papjia_mtc_bt::Waypoint"/>
+    <output name="grasp_waypoint" type="papjia_mtc_bt::Waypoint"/>
+  </Action>
+</root>

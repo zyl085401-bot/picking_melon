@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="ImageSaveToFile">
+    <description>将图像保存到文件</description>
+    <package_name>papjia_vision_behaviors</package_name>
+    <class_name>ImageSaveToFileAction</class_name>
+    <input name="image" type="sensor_msgs::msg::Image"/>
+    <input name="file_name" type="std::string"/>
+  </Action>
+</root>

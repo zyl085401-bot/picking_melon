@@ -1,0 +1,27 @@
+papjia_line_tracing_node:
+  ros__parameters:
+    topic_image: /front_usb_camera/image_raw
+    topic_camera_info: /front_usb_camera/camera_info
+    pose_camera2base:
+      [
+        0.502431315754795,
+        -0.005714542810736592,
+        0.26511741831834806,
+        -3.1134535572521216,
+        -0.018244749505647587,
+        -1.5962903224541989,
+      ]
+    pose_left2right: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    save_folder: /home/lab2/Documents/images
+    save_image: false
+    show_image: true
+    roi: [300, 330, 1620, 600]
+    centerline: [960, 1, 960, 1078] # [x1, y1, x2, y2], 保证中线与y轴（像素轴）平行
+    use_maskrcnn: true
+    wheel_separation: 0.4611
+    car_speed: 0.05
+    enable_adjust_speed: true
+    topic_tracing_trigger: /papjia/move/line_tracing_trigger
+    pid: [0.05, 0.005, 0.02]
+    update_hz: 4.0
+    use_stamp_twist: true

@@ -1,0 +1,17 @@
+# GpsPath.action
+# goal
+float64 goal_latitude
+float64 goal_longitude
+float64 goal_yaw
+string command   # "start" 或 "resume"，默认为 "start"
+
+---
+# result
+bool success
+string message
+string reached_points   # 可将已到达点信息转换为字符串
+string unreached_points # 同上
+
+---
+# feedback
+string current_status  # 当前导航状态描述，比如“正在前往第 N 个路径点”

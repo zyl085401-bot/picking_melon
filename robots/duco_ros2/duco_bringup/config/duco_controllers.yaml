@@ -1,0 +1,22 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    passthrough_trajectory_controller:
+      type: duco_controller/PassthroughTrajectoryController
+
+passthrough_trajectory_controller:
+  ros__parameters:
+    tf_prefix: ""
+    joints:
+      - joint1
+      - joint2
+      - joint3
+      - joint4
+      - joint5
+      - joint6
+    state_interfaces:
+      - position

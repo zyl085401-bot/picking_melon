@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+	<xacro:macro name="car">
+		<link name="base_link">
+            <inertial>
+                <origin xyz="0.00050599 -0.30801 -0.50668" rpy="0 0 0" />
+                <mass value="111.64" />
+                <inertia ixx="7.8711" ixy="4.1881E-05" ixz="-0.00027236" iyy="1.727" iyz="-0.15297" izz="8.3822" />
+            </inertial>
+			<visual>
+				<origin xyz="0.3 0 0.75" rpy="0 0 -1.5707" />
+				<geometry>
+					<mesh filename="package://papjia_melon_config/description/meshes/car.stl" />
+				</geometry>
+				<material name="">
+					<color rgba="0.8 0.8 0.8 1" />
+				</material>
+			</visual>
+			<collision>
+				<origin xyz="0.3 0 0.75" rpy="0 0 -1.5707" />
+				<geometry>
+					<mesh filename="package://papjia_melon_config/description/meshes/car.stl" />
+				</geometry>
+			</collision>
+		</link>
+
+		<link name="imu_link" />
+		<link name="gps_link" />
+		<joint name="joint_imu" type="fixed">
+			<origin xyz="0 0 0.2" rpy="0 0 0" />
+			<parent link="base_link" />
+			<child link="imu_link" />
+		</joint>
+		<joint name="joint_gps" type="fixed">
+			<origin xyz="0.45 -0.30 0.8" rpy="0 0 0" />
+			<parent link="base_link" />
+			<child link="gps_link" />
+		</joint>
+	</xacro:macro>
+</robot>

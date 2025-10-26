@@ -1,0 +1,26 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: duco_description
+    relative_path: urdf/duco.urdf.xacro
+    xacro_args: duco_type:=gcr5
+  srdf:
+    relative_path: config/duco_urdf.srdf
+  package_settings:
+    author_name: ygao
+    author_email: ygao9795@gmail.com
+    generated_timestamp: 1710406121
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

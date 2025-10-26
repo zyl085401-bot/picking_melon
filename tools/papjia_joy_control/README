@@ -1,0 +1,12 @@
+<!--
+ * @Descripttion: 说明文档
+ * @version: 1.0
+ * @Author: 崔译文
+ * @Date: 2024-03-04 17:21:43
+ * @LastEditors: 崔译文
+ * @LastEditTime: 2024-03-04 17:22:17
+-->
+## 运行
+```
+ros2 launch papjia_joy_control joy.launch.py
+```

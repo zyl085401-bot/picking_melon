@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="RemoveEscapeCharacter">
+    <description>移除转移字符</description>
+    <package_name>type_trans_behaviors</package_name>
+    <class_name>RemoveEscapeCharacterAction</class_name>
+    <input name="json_input" type="std::string"/>
+    <output name="json_result" type="std::string"/>
+  </Action>
+</root>

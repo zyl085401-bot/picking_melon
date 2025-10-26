@@ -1,0 +1,1 @@
+# source install/setup.bash ; python /workspace/src/papjia_vision/papjia_vision_behaviors/test/test_tree.py  /workspace/src/papjia_vision/papjia_vision_behaviors/config/tree_tree.xml TestCropImage

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:macro name="camera_gazebo" params="prefix">
+        <gazebo reference="${prefix}camera_link">
+            <sensor name="${prefix}camera" type="depth">
+                <visualize>true</visualize>
+                <update_rate>30.0</update_rate>
+                <camera name="${prefix}camera">
+                <horizontal_fov>1.047198</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>3</far>
+                </clip>
+                </camera>
+                <plugin name="${prefix}depth_camera_controller" filename="libgazebo_ros_camera.so">
+                    <baseline>0.2</baseline>
+                    <alwaysOn>true</alwaysOn>
+                    <frame_name>${prefix}camera_depth_optical_frame</frame_name>
+                    <pointcloud_cutoff>0.1</pointcloud_cutoff>
+                    <pointCloud_cutoffMax>3.0</pointCloud_cutoffMax>
+                    <distortionK1>0</distortionK1>
+                    <distortionK2>0</distortionK2>
+                    <distortionK3>0</distortionK3>
+                    <distortionT1>0</distortionT1>
+                    <distortionT2>0</distortionT2>
+                    <CxPrime>0</CxPrime>
+                    <Cx>0</Cx>
+                    <Cy>0</Cy>
+                    <focalLength>0</focalLength>
+                    <hackBaseline>0</hackBaseline>
+                    <min_depth>0.1</min_depth>
+                    <max_depth>3.0</max_depth>
+                </plugin>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+</robot>

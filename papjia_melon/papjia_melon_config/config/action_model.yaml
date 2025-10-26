@@ -1,0 +1,9 @@
+action_dirs:
+  - /papjia_core_ws/install/papjia_generic_behaviors/share/papjia_generic_behaviors/config/action
+  - /papjia_core_ws/install/papjia_mtc_bt/share/papjia_mtc_bt/config/action
+  - /workspace/install/papjia_vision_behaviors/share/papjia_vision_behaviors/config/action
+  - /workspace/install/papjia_move_behavior/share/papjia_move_behavior/config/action
+  - /workspace/src/papjia_melon/papjia_melon_behaviors/config/action
+  - /workspace/install/type_trans_behaviors/share/type_trans_behaviors/config/action
+  - /workspace/install/papjia_visualization_behaviors/share/papjia_visualization_behaviors/config/action
+  - /workspace/install/duco_bt/share/duco_bt/config/action

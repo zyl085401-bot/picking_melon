@@ -1,0 +1,47 @@
+FROM papjia-docker.pkg.coding.net/weishengwujiance/papjia_szyj/papjia_vision_base:latest
+
+# 安装scope_guard
+# WORKDIR /usr/local/include
+COPY scope_guard /usr/local/include/scope_guard
+
+# 安装realsense2驱动
+RUN mkdir -p /etc/udev/rules.d/
+RUN apt-get update \
+    && apt-get install -y \
+    ros-${ROS_DISTRO}-librealsense2* \
+    ros-${ROS_DISTRO}-realsense2-* \
+    ros-${ROS_DISTRO}-robot-localization \
+    ros-${ROS_DISTRO}-mapviz \
+    ros-${ROS_DISTRO}-mapviz-plugins \
+    ros-${ROS_DISTRO}-rclpy \
+    ros-${ROS_DISTRO}-ros2cli \
+    ros-${ROS_DISTRO}-demo-nodes-cpp \
+    ros-${ROS_DISTRO}-tile-map \
+    ros-${ROS_DISTRO}-navigation2 \
+    ros-${ROS_DISTRO}-nav2-bringup \
+    ros-${ROS_DISTRO}-turtlebot3-gazebo \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-twist-mux \
+    ros-${ROS_DISTRO}-ros2-control \
+    ros-${ROS_DISTRO}-ros2-controllers \
+    # ros-${ROS_DISTRO}-gazebo-ros2-control \
+    ros-${ROS_DISTRO}-tf2-ros-py \
+    can-utils \ 
+    udev  \
+    usbutils \
+    && rm -rf /var/lib/apt/lists/*
+
+# 安装python依赖
+RUN pip3 install --no-cache-dir -i https://mirrors.ustc.edu.cn/pypi/simple pynmea2 pyserial pyproj transforms3d thrift
+
+# 覆盖版本信息
+COPY papjia_melon/docker/.version_information_my.sh /.version_information.sh
+RUN chmod +x /.version_information.sh
+
+WORKDIR /papjia_core_ws
+COPY papjia_core /papjia_core_ws/src/papjia_core
+RUN source /opt/ros/humble/setup.bash && \
+    colcon build --parallel-workers 2 && \
+    rm -rf /papjia_core_ws/src/*
+    
+CMD ["bash"]

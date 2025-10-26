@@ -1,0 +1,52 @@
+capture_directory: "~"
+fixed_frame: map
+target_frame: map
+fix_orientation: false
+rotate_90: false
+enable_antialiasing: true
+show_displays: true
+show_status_bar: true
+show_capture_tools: true
+window_width: 2568
+window_height: 1630
+view_scale: 0.440578103
+offset_x: -410.698669
+offset_y: -107.757568
+use_latest_transforms: true
+background: "#a0a0a4"
+image_transport: raw
+displays:
+  - type: mapviz_plugins/tile_map
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      custom_sources:
+        - base_url: http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={level}&TILEROW={x}&TILECOL={y}&tk=9e73d798f4d93836c3b525f5063b9a44
+          max_zoom: 19
+          name: tianditu
+          type: wmts
+      bing_api_key: AkyUYBnset3_ORO8UIBXtWxRwpXv_JwbMmMuAT6WwyI3KUZIonxqbYLLKumW_FTG
+      source: Bing Maps (terrain)
+  - type: mapviz_plugins/tf_frame
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      frame: map
+      color: "#00ff00"
+      draw_style: lines
+      position_tolerance: 8
+      buffer_size: 4
+      static_arrow_sizes: false
+      arrow_size: 386
+  - type: mapviz_plugins/navsat
+    name: new display
+    config:
+      visible: true
+      collapsed: false
+      topic: /gps/fix
+      color: "#ff0000"
+      draw_style: points
+      position_tolerance: 0
+      buffer_size: 0

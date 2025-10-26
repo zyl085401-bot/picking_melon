@@ -1,0 +1,6 @@
+float64 goal_latitude
+float64 goal_longitude
+float64 goal_yaw 
+---
+bool success
+string message 

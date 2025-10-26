@@ -1,0 +1,93 @@
+{
+  "drivers": {
+    "beitian_gps_driver":{
+      "description": "北天GPS驱动包",
+      "url": "https://e.coding.net/papjia/papjia_driver/beitian_gps_driver.git",
+      "branch": "main"
+    },
+    "hipnuc_imu":{
+      "description": "超核imu驱动包",
+      "url": "https://e.coding.net/papjia/papjia_driver/hipnuc_imu.git",
+      "branch": "main"
+    },
+    "irq_pan_tilt_ros2":{
+      "description": "智科特云台驱动包",
+      "url": "https://e.coding.net/papjia/papjia_driver/irq_pan_tilt_ros2.git",
+      "branch": "master"
+    }
+  },
+
+  "robots": {
+    "duco_ros2":{
+      "description": "多可机器人ros2包",
+      "url": "https://e.coding.net/papjia/papjia_mobile_manipulator/duco_ros2.git",
+      "branch": "master"
+    },
+    "tk_mid_ros2":{
+      "description": "履带车ros2包",
+      "url": "https://e.coding.net/papjia/papjia_driver/tk-mid-ros2.git",
+      "branch": "melon"
+    }
+  },
+
+  "tools": {
+    "papjia_joy_control":{
+      "description": "joy控制包",
+      "url": "https://e.coding.net/papjia/papjia_mobile_manipulator/papjia_joy_control.git",
+      "branch": "master"
+    }
+  },
+
+  "app": {
+    "nav2_gps":{
+      "description": "gps导航配置",
+      "url": "https://e.coding.net/papjia/papjia_mobile_manipulator/nav2_gps.git",
+      "branch": "melon"
+    },
+    "papjia_vision":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_vision.git",
+      "description": "视觉包",
+      "branch":"melon"
+    },
+    "papjia_skill":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_skill.git",
+      "description": "技能包",
+      "branch":"master"
+    },
+    "papjia_config_manage":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_config_manage.git",
+      "description": "任务配置管理包",
+      "branch":"master"
+    },
+    "papjia_tracing_line":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_tracing_line.git",
+      "description": "沿线行走",
+      "branch":"melon"
+    },
+    "papjia_type_trans":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_type_trans.git",
+      "description": "数据类型转换",
+      "branch":"master"
+    }
+  },
+
+  "papjia_core": {
+    "papjia_bt":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_bt.git",
+      "branch":"master"
+    },
+    "papjia_control_msgs":{
+      "url":"https://e.coding.net/papjia/papjia_driver/papjia_control_msgs.git",
+      "branch":"master"
+    },
+    "papjia_msgs":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_msgs.git",
+      "branch":"master"
+    },
+    "papjia_mtc":{
+      "url":"https://e.coding.net/papjia/papjia_pickplace/papjia_mtc.git",
+      "branch":"master"
+    }
+  }
+}
+  

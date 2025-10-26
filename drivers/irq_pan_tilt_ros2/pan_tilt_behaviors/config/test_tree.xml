@@ -1,0 +1,9 @@
+<root>
+	<BehaviorTree ID='TestPanTilt'>
+		<Sequence>
+			<ControlPanTilt action_name='/PanTilt01/pan_tilt_control' yaw='20.0' pitch='20.0' speed='15' duration='0.1' timeout='10.0' success='{success}' />
+			<ControlPanTilt action_name='/PanTilt01/pan_tilt_control' yaw='-20.0' pitch='-20.0' speed='15' duration='0.1' timeout='10.0' success='{success}' />
+			<ControlPanTilt action_name='/PanTilt01/pan_tilt_control' yaw='0.0' pitch='0.0' speed='15' duration='0.1' timeout='10.0' success='{success}' />
+		</Sequence>
+	</BehaviorTree>
+</root>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>beitian_gps_driver</name>
+  <version>0.0.0</version>
+  <description>Package for beitian gps driver</description>
+  <maintainer email="chencanghao@foxmail.com">lab1</maintainer>
+  <license>TODO: License declaration</license>
+
+  <depend>serial_reader</depend>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>ament_python</build_depend>
+  <exec_depend>ament_python</exec_depend>
+  <exec_depend>pyserial</exec_depend>
+  <exec_depend>pynmea2</exec_depend>
+  <exec_depend>chardet</exec_depend>
+  
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

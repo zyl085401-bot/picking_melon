@@ -1,0 +1,108 @@
+services:
+  papjia_melon:
+    build:
+      context: ../../
+      dockerfile: papjia_melon/docker/Dockerfile.melon
+    container_name: papjia_melon
+    image: papjia-docker.pkg.coding.net/papjia_mobile_manipulator/melon/papjia_melon:latest
+    # 内存限制
+    mem_limit: 16g  # 最大内存限制
+    mem_reservation: 8g  # 最小内存保证
+    memswap_limit: 24g  # 最大内存+交换空间限制
+    volumes:
+      - ../../app:/workspace/src/app
+      - ../../drivers:/workspace/src/drivers
+      - ../../robots:/workspace/src/robots
+      - ../../tools:/workspace/src/tools
+      - ../../papjia_melon:/workspace/src/papjia_melon
+      - ../../data:/workspace/data
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+    network_mode: host
+    ipc: host
+    stdin_open: true  # 允许交互
+    
+    shm_size: '2gb' ####我修改的地方
+    
+    tty: true  # 保持终端运行
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - NVIDIA_VISIBLE_DEVICES=all  # 显示所有 GPU
+      - GAZEBO_MODEL_PATH=/workspace/src/app/nav2_gps/nav2_gps_waypoint_follower_demo/models
+      - WAYPOINT_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/waypoint_configs.json
+      - ACTION_MODEL_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/action_model.yaml
+    runtime: nvidia
+    command: bash
+
+  # papjia_melon_core:
+  #   build:
+  #     context: ../../
+  #     dockerfile: papjia_melon/docker/Dockerfile.melon.core
+  #   container_name: papjia_melon_core
+  #   image: papjia-docker.pkg.coding.net/papjia_mobile_manipulator/melon/papjia_melon_core:latest
+  #   # 内存限制
+  #   mem_limit: 16g  # 最大内存限制
+  #   mem_reservation: 8g  # 最小内存保证
+  #   memswap_limit: 24g  # 最大内存+交换空间限制
+  #   volumes:
+  #     - ../../app:/workspace/src/app
+  #     - ../../drivers:/workspace/src/drivers
+  #     - ../../robots:/workspace/src/robots
+  #     - ../../tools:/workspace/src/tools
+  #     - ../../papjia_melon:/workspace/src/papjia_melon
+  #     - ../../data:/workspace/data
+  #     - /dev:/dev
+  #     - /tmp/.X11-unix:/tmp/.X11-unix:rw
+  #     - ${XAUTHORITY:-$HOME/.Xauthority}:/root/.Xauthority
+  #   network_mode: host
+  #   ipc: host
+  #   stdin_open: true  # 允许交互
+  #   tty: true  # 保持终端运行
+  #   privileged: true
+  #   environment:
+  #     - TZ=Asia/Shanghai
+  #     - DISPLAY=${DISPLAY}
+  #     - QT_X11_NO_MITSHM=1
+  #     - NVIDIA_DRIVER_CAPABILITIES=all
+  #     - NVIDIA_VISIBLE_DEVICES=all  # 显示所有 GPU
+  #     - WAYPOINT_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/waypoint_configs.json
+  #     - ACTION_MODEL_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/action_model.yaml
+  #   runtime: nvidia
+  #   command: bash
+  
+  papjia_studio_flask:
+    container_name: papjia_studio_flask
+    image: papjia-docker.pkg.coding.net/papjia_mobile_manipulator/melon/papjia_melon:latest
+    # 内存限制
+    mem_limit: 4g  # 最大内存限制
+    mem_reservation: 2g  # 最小内存保证
+    memswap_limit: 6g  # 最大内存+交换空间限制
+    network_mode: "host"
+    ipc: host
+    privileged: true
+    volumes:
+      - ../../app:/workspace/src/app
+      - ../../drivers:/workspace/src/drivers
+      - ../../robots:/workspace/src/robots
+      - ../../tools:/workspace/src/tools
+      - ../../papjia_melon:/workspace/src/papjia_melon
+    environment:
+      - TZ=Asia/Shanghai
+      - WAYPOINT_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/waypoint_configs.json
+      - ACTION_MODEL_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/action_model.yaml
+    command: bash -c "cd /workspace/src/app/papjia_config_manage && chmod +x start.sh && ./start.sh"
+
+  papjia_studio_web:
+    # 内存限制
+    mem_limit: 2.5g  # 最大内存限制
+    mem_reservation: 1g  # 最小内存保证
+    memswap_limit: 3.5g  # 最大内存+交换空间限制
+    container_name: papjia_studio_web
+    image: papjia-docker.pkg.coding.net/papjia_mobile_manipulator/melon/papjia_studio_web:melon
+    working_dir: /app
+    network_mode: "host"

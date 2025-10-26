@@ -1,0 +1,7 @@
+<library path="papjia_move_behavior">
+  <class name="papjia/move_behavior" 
+         type="papjia::behaviors::MoveBehaviorLoader"
+         base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+    <description>底盘直走插件</description>
+  </class>
+</library>

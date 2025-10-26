@@ -1,0 +1,16 @@
+papjia_detector_node:
+  ros__parameters:
+    model_type: "yolo"
+    resource_dir: "/workspace/install/papjia_detector/share/papjia_detector/resource"
+    model_cfg: ""
+    model_path: "weights/yolov5_winding.pt"
+    labels: ['winding']
+    rect: [10, 10, 640, 480]
+    device: "0"
+    sample_image: "images/winding_rgb.png"
+    channels: "rgb" 
+    service_topic: "/papjia_vision/service_image_segment"
+    result_image_topic: "/papjia_vision/segment_result"
+    prepare_times: 2
+    with_mask: False
+    rect_height_ratio: 0.99

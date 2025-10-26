@@ -1,0 +1,12 @@
+/papjia_bt_loader:
+  ros__parameters:
+    plugins:
+      - "papjia/basic_behaviors"
+      - "papjia/arm_behaviors"
+      - "papjia/generic_behaviors"
+      - "papjia/vision_behaviors"
+      - "papjia/melon_bt"
+      - "papjia/move_behavior"
+      - "papjia/duco_bt"
+      - "papjia/type_trans_behaviors"
+      - "papjia/visualization_behaviors"

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="GetObjectFromDBJson">
+    <description>从json字符串获取double队列数据</description>
+    <package_name>type_trans_behaviors</package_name>
+    <class_name>GetObjectFromDBJsonAction</class_name>
+    <input name="json_input" type="std::string"/>
+    <input name="key" type="std::string"/>
+    <output name="result" type="std::vector&lt;double&gt;"/>
+  </Action>
+</root>

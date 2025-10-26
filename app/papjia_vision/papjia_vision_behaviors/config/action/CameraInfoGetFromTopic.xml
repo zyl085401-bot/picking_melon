@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="CameraInfoGetFromTopic">
+    <description>获取相机参数</description>
+    <package_name>papjia_vision_behaviors</package_name>
+    <class_name>CameraInfoGetFromTopicAction</class_name>
+    <input name="topic_name" type="std::string"/>
+    <output name="camera_info" type="sensor_msgs::msg::CameraInfo"/>
+  </Action>
+</root>

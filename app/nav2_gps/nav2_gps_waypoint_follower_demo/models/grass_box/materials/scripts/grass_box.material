@@ -1,0 +1,12 @@
+material grass_box_material
+{
+  technique
+  {
+    pass
+    {
+      texture_unit {
+      texture  /home/lab2/docker_ws/nav2_gps/src/nav2_gps_waypoint_follower_demo/models/grass_box/materials/textures/grass_texture.png
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+target_frame: "base_link" # 和机械臂标抓取相关
+flag_seg_by_cluster: true
+
+image_segmentation:
+  inst_num_max: 10
+  point_num_min: 0
+  point_num_max: 0
+  rect_area_min: 0
+  rect_area_max: 0
+  inst_score_min: 0.99
+
+pose_estimator:
+  workspace: [-3.0, -3.0, -3.0, 1.8, 3.0, 3.0]
+  obj_size_min: [0.01, 0.01, 0.01]
+  obj_size_max: [0.5, 0.5, 0.7]
+  point_num_max: 100000
+  point_num_min: 100
+  leaf_size: 0.005
+  cluster_tolerance: 0.02
+
+camera_info:
+  metric: 0.001
+  distortion_model: "plumb_bob"
+  D: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  K:
+    [
+      911.3623046875,
+      0.0,
+      645.9095458984375,
+      0.0,
+      911.5818481445312,
+      367.6588439941406,
+      0.0,
+      0.0,
+      1.0,
+
+    ]
+  R: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  P:
+    [
+      911.3623046875,
+      0.0,
+      645.9095458984375,
+      0.0,
+      0.0,
+      911.5818481445312,
+      367.6588439941406,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+
+    ]

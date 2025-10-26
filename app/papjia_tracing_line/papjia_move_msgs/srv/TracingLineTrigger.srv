@@ -1,0 +1,7 @@
+string trigger
+float32 speed
+string line_frame
+geometry_msgs/Pose2D line_start
+geometry_msgs/Pose2D line_end
+---
+bool success

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="PoseStampedToJson">
+    <description>将PoseStamped转成JSON字符串</description>
+    <package_name>type_trans_behaviors</package_name>
+    <class_name>PoseStampedToJsonAction</class_name>
+    <input name="pose" type="geometry_msgs::msg::PoseStamped"/>
+    <output name="json_result" type="std::string"/>
+  </Action>
+</root>

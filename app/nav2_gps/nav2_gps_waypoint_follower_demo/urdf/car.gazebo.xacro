@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:macro name="car_gazebo" params="prefix">
+        <gazebo reference="${prefix}caster_frontal_wheel">
+            <mu1 value="0.000"/>
+            <mu2 value="0.000"/>
+        </gazebo>
+        <gazebo reference="${prefix}caster_rear_wheel">
+            <mu1 value="0.000"/>
+            <mu2 value="0.000"/>
+        </gazebo>
+        
+        <gazebo reference="${prefix}base_link">
+            <material>Gazebo/grey</material>
+        </gazebo>
+
+        <gazebo reference="flag">
+            <material>Gazebo/Red</material>
+        </gazebo>
+        
+        <gazebo reference="${prefix}left_wheel">
+            <material>Gazebo/Black</material>
+            <mu1 value="1.0"/>
+            <mu2 value="1.0"/>
+        </gazebo>
+        
+        <gazebo reference="${prefix}right_wheel">
+            <material>Gazebo/Black</material>
+            <mu1 value="1.0"/>
+            <mu2 value="1.0"/>
+        </gazebo>
+    </xacro:macro>
+</robot>

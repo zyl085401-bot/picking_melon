@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="ObjectToJson">
+    <description>视觉位姿检测结果转JSON</description>
+    <package_name>type_trans_behaviors</package_name>
+    <class_name>ObjectsToJsonAction</class_name>
+    <input name="objects" type="std::vector&lt;papjia_vision_interface::msg::Object&gt;"/>
+    <output name="json_result" type="std::string"/>
+  </Action>
+</root>

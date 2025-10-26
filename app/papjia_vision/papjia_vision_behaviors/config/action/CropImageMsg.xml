@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="CropImageMsg">
+    <description>图像裁剪</description>
+    <package_name>papjia_vision_behaviors</package_name>
+    <class_name>CropImageMsgAction</class_name>
+    <input name="image_input" type="sensor_msgs::msg::Image"/>
+    <input name="x1" type="int"/>
+    <input name="y1" type="int"/>
+    <input name="x2" type="int"/>
+    <input name="y2" type="int"/>
+    <output name="image_output" type="sensor_msgs::msg::Image"/>
+  </Action>
+</root>

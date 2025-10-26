@@ -1,0 +1,18 @@
+# Goal definition
+float32 yaw          # Target yaw angle in degree
+float32 pitch        # Target pitch angle in degree
+float32 duration     # Duration to reach the target angles in seconds
+uint16 speed         # Move speed in degree
+float32 timeout      # Timeout to return
+
+---
+# Result definition
+bool success         # True if the action was successful, False otherwise
+string message       # Optional message for additional information
+float32 result_yaw
+float32 result_pitch
+
+---
+# Feedback definition
+float32 current_yaw  # Current yaw angle in degree
+float32 current_pitch # Current pitch angle in degree

@@ -1,0 +1,7 @@
+<library path="type_trans_behaviors">
+    <class name="papjia/type_trans_behaviors" type="papjia::behaviors::TypeTransBehaviorLoader"
+       base_class_type="papjia::behavior_tree::SharedResourcesNodeLoaderBase">
+       <description>数据转换相关的行为插件</description>
+    </class>
+  </library>
+  

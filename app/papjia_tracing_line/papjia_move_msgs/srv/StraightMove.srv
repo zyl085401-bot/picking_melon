@@ -1,0 +1,9 @@
+float32 distance
+float32 speed
+bool use_integral
+bool follow_line
+string line_frame
+float64[] line_start
+float64[] line_end
+---
+bool success

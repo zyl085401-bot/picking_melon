@@ -1,0 +1,11 @@
+papjia_line_tracing_node:
+  ros__parameters:
+    wheel_separation: 0.55
+    car_speed: 0.10
+    max_twist_z: 1.0
+    enable_adjust_speed: true
+    topic_tracing_trigger: /papjia/move/line_tracing_trigger
+    pid: [0.05, 0.005, 0.02]
+    update_hz: 4.0
+    use_stamp_twist: false
+    topic_cmd_vel: /cmd_vel_smoothed

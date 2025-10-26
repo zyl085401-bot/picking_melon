@@ -1,0 +1,6 @@
+bool flag_has_image
+sensor_msgs/Image image
+---
+int64 size # size * 4 = lines.length
+int64[] lines # [x11,y11,x12,y12, x21,y21,x22,y22]
+bool success

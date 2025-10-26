@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="Visualization">
+    <description>No description provided.</description>
+    <package_name>papjia_visualization_behaviors</package_name>
+    <class_name>VisualizationServiceClient</class_name>
+    <input name="service_name" type="std::string"/>
+    <input name="data" type="std::string"/>
+    <input name="wait_for_server_timeout" type="double"/>
+    <input name="result_timeout" type="double"/>
+    <output name="success" type="bool"/>
+    <output name="message" type="std::string"/>
+  </Action>
+</root>

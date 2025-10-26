@@ -1,0 +1,15 @@
+papjia_vision_box_node:
+  ros__parameters:
+    model_type: "yolo"
+    resource_dir: "resource"
+    model_path: "weights/tube.pt"
+    labels: ["M1", "M2", "M3"]
+    rect: [0, 0, 1280, 720]
+    device: "cuda:0"
+    sample_image: "images/sample_glass_tube.jpg"
+    channels: "rgb"
+    service_topic: "/papjia_vision/service_image_segment"
+    result_image_topic: "/papjia_vision/service_image_segment/result_image"
+    prepare_times: 2
+    with_mask: false
+    rect_height_ratio: 0.99

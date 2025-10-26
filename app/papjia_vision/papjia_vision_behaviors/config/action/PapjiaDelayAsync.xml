@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<root>
+  <Action ID="PapjiaDelayAsync">
+    <description>No description provided.</description>
+    <package_name>papjia_basic_behaviors</package_name>
+    <class_name>DelayAsync</class_name>
+    <input name="delay_duration" type="double"/>
+  </Action>
+</root>

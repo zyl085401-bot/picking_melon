@@ -1,0 +1,6 @@
+string frame
+bool flag_has_image
+sensor_msgs/Image image
+---
+int64 size
+geometry_msgs/Point[] lines

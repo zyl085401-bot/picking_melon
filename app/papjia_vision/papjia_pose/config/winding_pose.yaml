@@ -1,0 +1,52 @@
+target_frame: "camera_frame"
+flag_seg_by_cluster: true
+
+image_segmentation:
+  inst_num_max: 10
+  point_num_min: 0
+  point_num_max: 0
+  rect_area_min: 0
+  rect_area_max: 0
+  inst_score_min: 0.99
+
+pose_estimator:
+  workspace: [-2.0, -2.0, -2.0, 2.0, 2.0, 2.0]
+  obj_size_min: [0.01, 0.01, 0.01]
+  obj_size_max: [0.5, 0.5, 0.5]
+  point_num_max: 100000
+  point_num_min: 100
+  leaf_size: 0.01
+  cluster_tolerance: 0.02
+
+camera_info:
+  metric: 0.001
+  distortion_model: "plumb_bob"
+  D: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  K:
+    [
+      605.9107666015625,
+      0.0,
+      328.5904235839844,
+      0.0,
+      605.482177734375,
+      247.21226501464844,
+      0.0,
+      0.0,
+      1.0,
+    ]
+  R: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+  P:
+    [
+      605.9107666015625,
+      0.0,
+      328.5904235839844,
+      0.0,
+      0.0,
+      605.482177734375,
+      247.21226501464844,
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+    ]

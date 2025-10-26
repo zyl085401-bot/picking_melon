@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="melon_grasper">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import melon_grasper urdf file -->
+    <xacro:include filename="$(find papjia_melon_config)/description/robot.urdf.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="melon_grasper.ros2_control.xacro" />
+
+
+    <xacro:melon_grasper_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

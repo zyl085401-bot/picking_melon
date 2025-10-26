@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:macro name="imu_gazebo" params="prefix">
+        <gazebo reference="${prefix}imu_link">
+            <sensor name="${prefix}imu" type="imu">
+                <always_on>true</always_on>
+                <update_rate>1</update_rate>
+                <imu>
+                    <angular_velocity>
+                        <noise>
+                            <type>gaussian</type>
+                            <mean>0.0</mean>
+                            <stddev>2e-4</stddev>
+                        </noise>
+                    </angular_velocity>
+                    <linear_acceleration>
+                        <noise>
+                            <type>gaussian</type>
+                            <mean>0.0</mean>
+                            <stddev>1.7e-2</stddev>
+                        </noise>
+                    </linear_acceleration>
+                </imu>
+                <plugin name="${prefix}imu_controller" filename="libgazebo_ros_imu_sensor.so">
+                    <ros>
+                        <argument>~/out:=imu</argument>
+                    </ros>
+                    <!-- <topicName>imu/data</topicName> -->
+                    <output_type>sensor_msgs/Imu</output_type>
+                    <frame_name>${prefix}imu_link</frame_name>
+                </plugin>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+</robot>

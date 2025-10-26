@@ -1,0 +1,2068 @@
+{
+    "glass_tube": {
+        "home_left": {
+            "group": "arm_left",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.9812279536938833,
+                0.5206840757474683,
+                2.38235697567974,
+                -0.9922022264662563,
+                0.8700117255341334,
+                1.0151707594225017
+            ],
+            "description": "左臂home点",
+            "type": "joint"
+        },
+        "home_right": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -1.6336979930367723,
+                -0.1943075056245287,
+                -2.5776069591003457,
+                1.28969359746869,
+                0.8333074513646926,
+                -3.141592653589793
+            ],
+            "description": "右臂home点",
+            "type": "joint"
+        },
+        "左臂-玻璃试管库-抓取-准备": {
+            "group": "arm_left",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "glass_tube",
+            "pose": [
+                0,
+                0,
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左手去试管架抓取试管的预备点位",
+            "type": "cartesian"
+        },
+        "左臂-玻璃试管库-抓取-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "glass_tube",
+            "pose": [
+                0,
+                0,
+                "0.04",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左手去试管架抓取试管的就绪点位",
+            "type": "cartesian"
+        },
+        "左臂-玻璃试管库-抓取-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "glass_tube",
+            "pose": [
+                0,
+                0,
+                "0.11",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左手去试管架抓取试管的撤离点位",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-放置-准备": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.134836043537675,
+                1.2625146749266591,
+                1.402115426396682,
+                -1.4944050163573348,
+                0.873634299710384,
+                2.1581346936298136
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_glass_tube",
+            "stage_name": "left-op_glass_tube-hold-glass-pose-prepare",
+            "planner": "ptp",
+            "description": "左手去试管操作台放置试管的预备点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.09,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.1272809738031309,
+                1.2533726969458694,
+                1.4001337046135045,
+                -1.489403841625803,
+                0.8768047709684537,
+                2.1649309268631445
+            ]
+        },
+        "左臂-药液操作台-放置-就绪": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.2083618499840614,
+                1.353419636311424,
+                1.3758162680389978,
+                -1.4991800206650012,
+                0.8470928915656717,
+                2.068305663157105
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_glass_tube",
+            "stage_name": "left-op_glass_tube-hold-glass-pose-ready",
+            "planner": "lin",
+            "description": "左手去试管操作台放置试管的就绪点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.005,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.2083618499840614,
+                1.353419636311424,
+                1.3758162680389978,
+                -1.4991800206650012,
+                0.8470928915656717,
+                2.068305663157105
+            ]
+        },
+        "左臂-药液操作台-放置-撤退": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.2083618499840614,
+                1.353419636311424,
+                1.3758162680389978,
+                -1.4991800206650012,
+                0.8470928915656717,
+                2.068305663157105
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_glass_tube",
+            "stage_name": "left-op_glass_tube-hold-lid-pose-leave",
+            "planner": "lin",
+            "description": "左手在试管操作台取走试管盖的撤离点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.04,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.1750102805801679,
+                1.3118656560171644,
+                1.3860588905090099,
+                -1.4954667024352792,
+                0.8590427436897119,
+                2.1083351603387985
+            ]
+        },
+        "左臂-药液操作台-取玻璃试管-准备": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.1750102805801679,
+                1.3118656560171644,
+                1.3860588905090099,
+                -1.4954667024352792,
+                0.8590427436897119,
+                2.1083351603387985
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_glass_tube",
+            "stage_name": "left-op_glass_tube-hold-lid-pose-prepare",
+            "planner": "ptp",
+            "description": "左手在试管操作台盖上试管盖的预备点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.06,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.1557395850825238,
+                1.288201458174165,
+                1.3918712569461003,
+                -1.492960587747052,
+                0.866120330939584,
+                2.131809647609801
+            ]
+        },
+        "左臂-药液操作台-取玻璃试管-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                0,
+                0,
+                "0.04",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左手在试管操作台盖上试管盖的就绪点位",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-取玻璃试管-撤退": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.188345717911677,
+                1.3282949278408456,
+                1.3851416250271598,
+                -1.5009696659530147,
+                0.8539381243811355,
+                2.092799807185476
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_glass_tube",
+            "stage_name": "left-op_glass_tube-hold-glass-pose-leave",
+            "planner": "lin",
+            "description": "左手在试管操作台取走试管的撤离点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.08,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.1369089648983783,
+                1.2653104394481225,
+                1.396399599729249,
+                -1.4896417608990271,
+                0.8732432391093992,
+                2.1537924723763444
+            ]
+        },
+        "left-shake-hold-glass-pose-prepare": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.3979110479971122,
+                1.3416426731544124,
+                2.224275230324829,
+                -2.166211024524018,
+                0.8012818317612462,
+                1.8170049874439207
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "shake",
+            "stage_name": "left-shake-hold-glass-pose-prepare",
+            "planner": "ptp",
+            "description": "左手握持试管在振荡器上的预备点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.13,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.3769461775582683,
+                1.3289455119248075,
+                2.236414072230822,
+                -2.1855837345479125,
+                0.8048063783010304,
+                1.8442321418148335
+            ]
+        },
+        "left-shake-hold-glass-pose-ready": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.4325295717511604,
+                1.3695843911720145,
+                2.1987820925959367,
+                -2.1359511129243973,
+                0.7953499914063105,
+                1.7701270399194393
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "shake",
+            "stage_name": "left-shake-hold-glass-pose-ready",
+            "planner": "lin",
+            "description": "左手握持试管在振荡器上的就绪点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.09,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.4526352401037588,
+                1.3807703142397876,
+                2.185504951301253,
+                -2.1120669302221846,
+                0.7927182428790299,
+                1.7407342822104195
+            ]
+        },
+        "left-shake-hold-glass-pose-leave": {
+            "group": "arm_left",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values_init": [
+                1.3975400175432238,
+                1.3411621465315209,
+                2.2249258206033207,
+                -2.1623132408546213,
+                0.8008600705377669,
+                1.8143893821280346
+            ],
+            "type": "ref_pose",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "shake",
+            "stage_name": "left-shake-hold-glass-pose-leave",
+            "planner": "lin",
+            "description": "左手握持试管在振荡器上的撤离点位",
+            "pose": [
+                0.0,
+                0.0,
+                0.13,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "joint_values": [
+                1.3781226080138391,
+                1.3288135282051246,
+                2.236907214924389,
+                -2.1829499876667886,
+                0.8046886820518319,
+                1.842981625186546
+            ]
+        },
+        "right-op_glass_tube-hold-glass-pose-prepare": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_inner",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                "-0.05",
+                -0.12,
+                -0.065,
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "右手去试管操作台放置试管的预备点位",
+            "type": "cartesian"
+        },
+        "right-op_glass_tube-hold-glass-pose-ready": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_inner",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                "-0.05",
+                0,
+                -0.065,
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "右手去试管操作台放置试管的就绪点位",
+            "type": "cartesian"
+        },
+        "right-op_glass_tube-hold-glass-pose-leave": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_inner",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                "-0.05",
+                -0.12,
+                -0.065,
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "右手去试管操作台放置试管的撤离点位",
+            "type": "cartesian"
+        }
+    },
+    "pipette": {
+        "home_left": {
+            "group": "arm_left",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.9812279536938833,
+                0.5206840757474683,
+                2.38235697567974,
+                -0.9922022264662563,
+                0.8700117255341334,
+                1.0151707594225017
+            ],
+            "description": "左臂home点",
+            "type": "joint"
+        },
+        "home_right": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -1.6336979930367723,
+                -0.1943075056245287,
+                -2.5776069591003457,
+                1.28969359746869,
+                0.8333074513646926,
+                -3.141592653589793
+            ],
+            "description": "右臂home点",
+            "type": "joint"
+        },
+        "左臂-移液-1ml-枪头库-取枪头-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "tip1",
+            "pose": [
+                "0",
+                0,
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左臂带着移液枪去1ml枪头库取枪头，上方预备点位",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-枪头库-取枪头-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "tip1",
+            "pose": [
+                "0",
+                0,
+                "0.02",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左臂带着移液枪去1ml枪头库取枪头，取枪位置",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-枪头库-取枪头-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "tip1",
+            "pose": [
+                "0",
+                0,
+                "0.2",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "左臂带着移液枪去1ml枪头库取枪头，取到枪了，提前来，撤退",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-药液操作台-药液试管取液-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "op_test_tube",
+            "pose": [
+                "0",
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去药液操作台，从药液试管中取1ml液体",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-药液操作台-药液试管取液-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "op_test_tube",
+            "pose": [
+                "0",
+                0,
+                "0.01",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去药液操作台，从药液试管中取1ml液体",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-药液操作台-药液试管取液-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "op_test_tube",
+            "pose": [
+                "0",
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去药液操作台，从药液试管中取1ml液体",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-药液操作台-玻璃试管-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                "0",
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去药液操作台，在玻璃试管内，进行取液或吐液操作",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-药液操作台-玻璃试管-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                "0",
+                0,
+                "0.01",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去药液操作台，在玻璃试管内，进行取液或吐液操作",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-药液操作台-玻璃试管-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "op_glass_tube",
+            "pose": [
+                "0",
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去药液操作台，在玻璃试管内，进行取液或吐液操作",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-烧瓶操作台-烧瓶1-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "flask_op1",
+            "pose": [
+                "0",
+                0,
+                "0.2",
+                0,
+                0,
+                -0.7071067811865475,
+                0.7071067811865476
+            ],
+            "description": "在烧瓶操作台，从烧瓶内吸吐液",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-烧瓶操作台-烧瓶1-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "flask_op1",
+            "pose": [
+                "0",
+                0,
+                "0.05",
+                0,
+                0,
+                -0.766044443118978,
+                0.6427876096865394
+            ],
+            "description": "在烧瓶操作台，从烧瓶内吸吐液",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-烧瓶操作台-烧瓶1-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "flask_op1",
+            "pose": [
+                "0",
+                0,
+                "0.2",
+                0,
+                0,
+                -0.7071067811865475,
+                0.7071067811865476
+            ],
+            "description": "在烧瓶操作台，从烧瓶内吸吐液",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-平板操作台--准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.05",
+                0,
+                "0.2",
+                0,
+                -0.08715574274765817,
+                0,
+                0.9961946980917455
+            ],
+            "description": "去平板操作台，往平板里加液体",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-平板操作台--就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.01",
+                0,
+                "0.05",
+                0,
+                -0.08715574274765817,
+                0,
+                0.9961946980917455
+            ],
+            "description": "去平板操作台，往平板里加液体",
+            "type": "cartesian"
+        },
+        "左臂-移液-1ml-平板操作台--撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_tip1",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.1",
+                "0.2",
+                "0.2",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "去平板操作台，往平板里加液体",
+            "type": "cartesian"
+        },
+        "左臂-取枪-1ml-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette1",
+            "pose": [
+                "0",
+                "-0.1",
+                "0.0",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.4523141384124756,
+                0.9174599647521973,
+                2.329876661300659,
+                -1.0174157619476318,
+                1.1025350093841553,
+                0.5112688541412354
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-1ml-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette1",
+            "pose": [
+                "0.001",
+                "-0.003",
+                "-0.003",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.282785415649414,
+                0.7922728061676025,
+                2.0020482540130615,
+                -0.645545244216919,
+                1.0024666786193848,
+                0.6706590056419373
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-1ml-抬起": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette1",
+            "pose": [
+                "0.001",
+                "-0.004",
+                "0.014",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.266462802886963,
+                0.7565118670463562,
+                2.036083459854126,
+                -0.6512497663497925,
+                0.9942814707756042,
+                0.6854835152626038
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-1ml-释放": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette1",
+            "pose": [
+                "-0.0005",
+                "-0.002",
+                "0.004",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.1732375621795654,
+                0.5545297265052795,
+                2.2005069255828857,
+                -0.6684950590133667,
+                0.9463565349578857,
+                0.7818606495857239
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-1ml-准备怼": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette1",
+            "pose": [
+                "0.001",
+                "-0.025",
+                "-0.0025",
+                -0.008726535498373935,
+                0,
+                0,
+                0.9999619230641713
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.171919345855713,
+                0.941979706287384,
+                2.12434720993042,
+                -0.9813193082809448,
+                0.9463685750961304,
+                0.782819390296936
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-1ml-抬起-撤离": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette1",
+            "pose": [
+                "-0.0005",
+                "-0.002",
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.270357608795166,
+                0.7511069774627686,
+                2.035723924636841,
+                -0.6424053907394409,
+                0.9971457123756409,
+                0.6810134053230286
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-10ml-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette10",
+            "pose": [
+                "0",
+                "-0.1",
+                "0.0",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.4520504474639893,
+                0.9172682166099548,
+                2.3296728134155273,
+                -1.0175955295562744,
+                1.1021873950958252,
+                0.5108973383903503
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-10ml-准备怼": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette10",
+            "pose": [
+                "0.001",
+                "-0.025",
+                "-0.0025",
+                -0.008726535498373935,
+                0,
+                0,
+                0.9999619230641713
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.528773546218872,
+                0.7436647415161133,
+                2.232912302017212,
+                -0.700684666633606,
+                1.1422027349472046,
+                0.43635544180870056
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-10ml-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette10",
+            "pose": [
+                "0.001",
+                "-0.001",
+                "-0.0025",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.551244020462036,
+                0.7173473834991455,
+                2.1920700073242188,
+                -0.646515965461731,
+                1.1627676486968994,
+                0.4269598126411438
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-10ml-抬起": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette10",
+            "pose": [
+                "0.001",
+                "-0.003",
+                "0.014",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.5379295349121094,
+                0.6820778250694275,
+                2.2290053367614746,
+                -0.6491045951843262,
+                1.1555172204971313,
+                0.4364153742790222
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-10ml-抬起-撤离": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette10",
+            "pose": [
+                "-0.0005",
+                "-0.004",
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.452230215072632,
+                0.45068642497062683,
+                2.413466691970825,
+                -0.6352867484092712,
+                1.102115511894226,
+                0.5108014345169067
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-取枪-10ml-释放": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_quick_change_end",
+            "frame_id": "pipette10",
+            "pose": [
+                "-0.0005",
+                "-0.003",
+                "0.004",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                2.5474328994750977,
+                0.7027266621589661,
+                2.2115085124969482,
+                -0.6498116254806519,
+                1.1595439910888672,
+                0.4298120439052582
+            ],
+            "description": "",
+            "type": "cartesian"
+        }
+    },
+    "dish": {
+        "home_left": {
+            "group": "arm_left",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.9812279536938833,
+                0.5206840757474683,
+                2.38235697567974,
+                -0.9922022264662563,
+                0.8700117255341334,
+                1.0151707594225017
+            ],
+            "description": "左臂home点",
+            "type": "joint"
+        },
+        "home_right": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -1.6336979930367723,
+                -0.1943075056245287,
+                -2.5776069591003457,
+                1.28969359746869,
+                0.8333074513646926,
+                -3.141592653589793
+            ],
+            "description": "右臂home点",
+            "type": "joint"
+        },
+        "右臂-平板库-出入库-初始点": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -2.297602783337255,
+                -0.838092233631632,
+                -1.9207355185657924,
+                -0.3938918194708645,
+                -2.2990019281673515,
+                0.7754303041346736
+            ],
+            "description": "右臂平板库出入库初始点",
+            "type": "joint"
+        },
+        "右臂-平板库-操作台-准备": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.1",
+                0,
+                "0.02",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-平板库-操作台-就绪": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.06",
+                0,
+                "0.02",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-平板库-操作台-抬起": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.06",
+                0,
+                "0.05",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-平板库-操作台-撤退": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_op",
+            "pose": [
+                "-0.15",
+                0,
+                "0.05",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-平板库-入库-准备1": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -2.2976037872028954,
+                -0.8380896535151571,
+                -1.9207348418197596,
+                -0.3938859055900803,
+                -2.2990000506044908,
+                3.9095375244672983
+            ],
+            "description": "右臂平板库出入库初始点",
+            "type": "joint"
+        },
+        "右臂-平板库-入库-准备2": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_in",
+            "pose": [
+                "0",
+                "0.0",
+                "0.15",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-平板库-入库-就绪": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_in",
+            "pose": [
+                "0",
+                "0.0",
+                "0.05",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-平板库-入库-撤退": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_dish",
+            "frame_id": "dish_in",
+            "pose": [
+                "0",
+                "0.0",
+                "0.1",
+                0,
+                0,
+                0,
+                0
+            ],
+            "description": "",
+            "type": "cartesian"
+        }
+    },
+    "test_tube": {
+        "home_left": {
+            "group": "arm_left",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.7009978889936734,
+                0.7379950209132823,
+                2.5439919177069346,
+                -1.6099964217946892,
+                0.8100073058505682,
+                1.3839937369539435
+            ],
+            "description": "左臂home点",
+            "type": "joint"
+        },
+        "home_right": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -1.6336979930367723,
+                -0.1943075056245287,
+                -2.5776069591003457,
+                1.28969359746869,
+                0.8333074513646926,
+                -3.141592653589793
+            ],
+            "description": "右臂home点",
+            "type": "joint"
+        },
+        "左臂-药液试管库-抓取-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "test_tube",
+            "pose": [
+                0,
+                0,
+                "0.1",
+                0,
+                0,
+                -0.7071067811865475,
+                0.7071067811865476
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.6973199844360352,
+                0.9788432121276855,
+                1.6176421642303467,
+                -0.8957878947257996,
+                0.7910769581794739,
+                1.3723114728927612
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液试管库-抓取-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "test_tube",
+            "pose": [
+                0,
+                0,
+                "0.05",
+                0,
+                0,
+                -0.7071067811865475,
+                0.7071067811865476
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.8554039001464844,
+                0.5779349207878113,
+                1.62971031665802,
+                0.9165744781494141,
+                1.8644320964813232,
+                0.7797394394874573
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液试管库-抓取-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "test_tube",
+            "pose": [
+                0,
+                0,
+                "0.2",
+                0,
+                0,
+                -0.7071067811865475,
+                0.7071067811865476
+            ],
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.9492642879486084,
+                0.7216257452964783,
+                1.5481096506118774,
+                0.8586786985397339,
+                1.9608092308044434,
+                0.7794997692108154
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-放-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-放-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                0,
+                "0.03",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-放-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                0,
+                "0.05",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-取-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                0,
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-取-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                0,
+                "0.03",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液操作台-取-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                0,
+                "0.2",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液试管库-放-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "test_tube",
+            "pose": [
+                0,
+                0,
+                "0.2",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液试管库-放-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "test_tube",
+            "pose": [
+                0,
+                0,
+                "0.03",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-药液试管库-放-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "test_tube",
+            "pose": [
+                0,
+                0,
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-振荡-准备": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "shake",
+            "pose": [
+                0,
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-振荡-就绪": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "shake",
+            "pose": [
+                0,
+                0,
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "左臂-振荡-撤退": {
+            "group": "arm_left",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_left_grasp",
+            "frame_id": "shake",
+            "pose": [
+                0,
+                0,
+                "0.2",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-操作台-准备": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_inner",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                "-0.03",
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -1.6863336563110352,
+                -0.22974403202533722,
+                -2.4670026302337646,
+                1.4780447483062744,
+                0.9925227761268616,
+                -1.5655713081359863
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-操作台-就绪": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_inner",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                "-0.03",
+                "-0.03",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-操作台-后撤": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_inner",
+            "frame_id": "op_test_tube",
+            "pose": [
+                0,
+                "-0.2",
+                "-0.03",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        }
+    },
+    "flask": {
+        "home_left": {
+            "group": "arm_left",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_left_joint1",
+                "arm_left_joint2",
+                "arm_left_joint3",
+                "arm_left_joint4",
+                "arm_left_joint5",
+                "arm_left_joint6"
+            ],
+            "joint_values": [
+                1.9812279536938833,
+                0.5206840757474683,
+                2.38235697567974,
+                -0.9922022264662563,
+                0.8700117255341334,
+                1.0151707594225017
+            ],
+            "description": "左臂home点",
+            "type": "joint"
+        },
+        "home_right": {
+            "group": "arm_right",
+            "planner": "ptp",
+            "preWaypoint": "",
+            "joint_names": [
+                "arm_right_joint1",
+                "arm_right_joint2",
+                "arm_right_joint3",
+                "arm_right_joint4",
+                "arm_right_joint5",
+                "arm_right_joint6"
+            ],
+            "joint_values": [
+                -1.6336979930367723,
+                -0.1943075056245287,
+                -2.5776069591003457,
+                1.28969359746869,
+                0.8333074513646926,
+                -3.141592653589793
+            ],
+            "description": "右臂home点",
+            "type": "joint"
+        },
+        "右臂-烧瓶库-准备": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_storage_base",
+            "pose": [
+                0,
+                "0",
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-烧瓶库-撤退": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_storage_base",
+            "pose": [
+                0,
+                "0",
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-烧瓶库-就绪": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_storage_base",
+            "pose": [
+                0,
+                "0",
+                "0.05",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-烧瓶操作台-1-准备": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_op1",
+            "pose": [
+                0,
+                "0",
+                "0.1",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-烧瓶库-初始点": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": "",
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_storage_base",
+            "pose": [
+                "0",
+                "0.6",
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-烧瓶操作台-1-就绪": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_op1",
+            "pose": [
+                0,
+                "0",
+                "0.05",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        },
+        "右臂-烧瓶操作台-1-撤退": {
+            "group": "arm_right",
+            "planner": "lin",
+            "preWaypoint": null,
+            "ik_frame": "arm_right_grasp_flask",
+            "frame_id": "flask_op1",
+            "pose": [
+                0,
+                "0",
+                "0.15",
+                0,
+                0,
+                0,
+                1
+            ],
+            "description": "",
+            "type": "cartesian"
+        }
+    }
+}

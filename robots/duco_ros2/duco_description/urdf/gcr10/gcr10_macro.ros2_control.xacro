@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+  <xacro:macro name="gcr10_ros2_control" params="
+               name
+               prefix
+               use_mock_hardware:=^|false
+               mock_sensor_commands:=^|false
+               sim_gazebo_classic:=^|false
+               sim_gazebo:=^|false
+               simulation_controllers
+               robot_ip
+               initial_values_yaml_file"
+               >
+
+    <xacro:property name="initial_values" value="${xacro.load_yaml(initial_values_yaml_file)}" />
+
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <xacro:if value="${use_mock_hardware}">
+          <plugin>mock_components/GenericSystem</plugin>
+          <param name="mock_sensor_commands">${mock_sensor_commands}</param>
+        </xacro:if>
+        <xacro:if value="${sim_gazebo_classic}">
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </xacro:if>
+        <xacro:if value="${sim_gazebo}">
+          <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </xacro:if>
+        <!-- 自己定义的插件 -->
+        <xacro:unless value="${use_mock_hardware or sim_gazebo_classic or sim_gazebo}">
+          <plugin>duco_hardware_interface/DucoHardwareInterface</plugin>
+          <param name="robot_ip">${robot_ip}</param>
+        </xacro:unless>
+      </hardware>
+      <joint name="${prefix}joint1">
+        <xacro:if value="${use_mock_hardware}">
+          <command_interface name="position"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_values.initial_values.joint1}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort" />
+      </joint>
+      <joint name="${prefix}joint2">
+        <xacro:if value="${use_mock_hardware}">
+          <command_interface name="position"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_values.initial_values.joint2}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort" />
+      </joint>
+      <joint name="${prefix}joint3">
+        <xacro:if value="${use_mock_hardware}">
+          <command_interface name="position"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_values.initial_values.joint3}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort" />
+      </joint>
+      <joint name="${prefix}joint4">
+        <xacro:if value="${use_mock_hardware}">
+          <command_interface name="position"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_values.initial_values.joint4}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort" />
+      </joint>
+      <joint name="${prefix}joint5">
+        <xacro:if value="${use_mock_hardware}">
+          <command_interface name="position"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_values.initial_values.joint5}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort" />
+      </joint>
+      <joint name="${prefix}joint6">
+        <xacro:if value="${use_mock_hardware}">
+          <command_interface name="position"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_values.initial_values.joint6}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort" />
+      </joint>
+
+      <!-- 真实硬件使用轨迹透传模式 -->
+      <xacro:unless value="${use_mock_hardware}">
+        <gpio name="${prefix}trajectory_passthrough">
+          <command_interface name="setpoint_positions_0"/>
+          <command_interface name="setpoint_positions_1"/>
+          <command_interface name="setpoint_positions_2"/>
+          <command_interface name="setpoint_positions_3"/>
+          <command_interface name="setpoint_positions_4"/>
+          <command_interface name="setpoint_positions_5"/>
+          <command_interface name="transfer_state"/>
+          <command_interface name="abort"/>
+          <command_interface name="vel" />
+      </gpio>
+      </xacro:unless>
+    </ros2_control>
+    
+    <xacro:if value="${sim_gazebo_classic}">
+        <!-- Gazebo plugins -->
+        <gazebo reference="world">
+        </gazebo>
+        <gazebo>
+          <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <parameters>${simulation_controllers}</parameters>
+          </plugin>
+        </gazebo>
+      </xacro:if>
+    
+      <xacro:if value="${sim_gazebo}">
+        <!-- Gazebo plugins -->
+        <gazebo reference="world">
+        </gazebo>
+        <gazebo>
+          <plugin filename="libgz_ros2_control-system.so" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters>${simulation_controllers}</parameters>
+            <controller_manager_node_name>${prefix}controller_manager</controller_manager_node_name>
+          </plugin>
+        </gazebo>
+      </xacro:if>
+  </xacro:macro>
+</robot>
