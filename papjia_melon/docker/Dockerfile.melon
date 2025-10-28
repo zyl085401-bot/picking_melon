@@ -47,7 +47,9 @@ RUN echo 'alias load_gps="ros2 launch nav2_gps_waypoint_follower_demo gps.launch
 RUN echo 'alias load_camera="ros2 launch papjia_melon_config camera.launch.py"' >> ~/.bashrc && \
     echo 'alias load_camera_calibration="ros2 launch papjia_melon_config camera.launch.py detect_charucoboard:=true"' >> ~/.bashrc && \
     echo 'alias load_vision="ros2 launch papjia_melon_config vision.launch.py"' >> ~/.bashrc && \
+    echo 'alias load_vision_base="ros2 launch papjia_melon_config vision_base.launch.py"' >> ~/.bashrc && \
 echo 'alias load_image_pub="ros2 launch papjia_melon_config rgbd_publish.launch.py"' >> ~/.bashrc && \
+echo 'alias load_image_pub_base="ros2 launch papjia_melon_config rgbd_publish_base.launch.py"' >> ~/.bashrc && \
     echo 'alias load_visualization="ros2 launch papjia_melon_config visualization_service.launch.py"' >> ~/.bashrc && \
     echo 'alias load_image_save="ros2 launch papjia_melon_config rgbd_saver.launch.py"' >> ~/.bashrc
 
@@ -65,8 +67,8 @@ RUN echo 'alias load_bt="ros2 launch papjia_melon_config bt.launch.py"' >> ~/.ba
     echo 'alias load_localization_sim="ros2 launch papjia_melon_config localization_sim.launch.py"' >> ~/.bashrc && \
     echo 'alias load_tracing="ros2 launch papjia_melon_config tracing.launch.py"' >> ~/.bashrc && \
     echo 'alias load_tracing_sim="ros2 launch papjia_melon_config tracing_sim.launch.py"' >> ~/.bashrc && \
-    echo 'alias load_task_test="python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node.py"' >> ~/.bashrc
-
+    echo 'alias load_task_test="python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node.py"' >> ~/.bashrc \
+    echo 'alias load_task_node_base="python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node_base.py"' >> ~/.bashrc
 ENTRYPOINT [ "/entrypoint_udev.sh" ]
 CMD ["bash"]
 
@@ -78,10 +80,12 @@ CMD ["bash"]
 
 
 # load_arm_sim
-# ros2 launch papjia_melon_config rgbd_publish_base.launch.py
-# ros2 launch papjia_melon_config vision_base.launch.py
+# load_image_pub_base
+# load_vision_base
 # load_bt
-# python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node_base.py
+# load_task_node_base
+
+# 添加 >> ~/.bashrc 命令之后要docker compose build papjia_melon 之后再正常启动
 
 
 # ros2 bag record -a -o /workspace/src/papjia_melon/papjia_melon_calibration/test_savedata/my_calibration_data
