@@ -1,0 +1,91 @@
+- bbox:
+  - 601
+  - 113
+  - 653
+  - 313
+  category: bitter
+  rect_rotated:
+    angle: 90.0
+    cx: 629
+    cy: 213
+    h: 55
+    w: 186
+  score: 0.40038368105888367
+- bbox:
+  - 946
+  - 145
+  - 1011
+  - 339
+  category: bitter
+  rect_rotated:
+    angle: 73.76764678955078
+    cx: 978
+    cy: 246
+    h: 44
+    w: 201
+  score: 0.6281530261039734
+- bbox:
+  - 351
+  - 241
+  - 408
+  - 427
+  category: bitter
+  rect_rotated:
+    angle: 7.125016689300537
+    cx: 380
+    cy: 334
+    h: 183
+    w: 52
+  score: 0.6933087706565857
+- bbox:
+  - 645
+  - 308
+  - 682
+  - 471
+  category: bitter
+  rect_rotated:
+    angle: 0.0
+    cx: 663
+    cy: 390
+    h: 157
+    w: 34
+  score: 0.715212345123291
+- bbox:
+  - 303
+  - 391
+  - 350
+  - 549
+  category: bitter
+  rect_rotated:
+    angle: 12.144277572631836
+    cx: 323
+    cy: 467
+    h: 163
+    w: 31
+  score: 0.7391680479049683
+- bbox:
+  - 831
+  - 370
+  - 870
+  - 518
+  category: bitter
+  rect_rotated:
+    angle: 76.96664428710938
+    cx: 848
+    cy: 441
+    h: 31
+    w: 145
+  score: 0.771430253982544
+- bbox:
+  - 233
+  - 195
+  - 301
+  - 223
+  category: bitter
+  rect_rotated:
+    angle: 90.0
+    cx: 269
+    cy: 212
+    h: 71
+    w: 29
+  score: 0.4088229238986969

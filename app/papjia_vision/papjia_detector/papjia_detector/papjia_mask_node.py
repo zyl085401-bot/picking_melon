@@ -191,29 +191,112 @@ class ImageSegService(Node):
         return response
     
 ######################################################################################
+    # def save_results(self, img, seg_mask, response):
+    #     """保存分割结果（原图、掩码、类别、分数、框信息）"""
+    #     # 固定根目录
+    #     root_dir = "/workspace/src/papjia_melon/papjia_melon_calibration/test_savedata/data_point_images/detector"
+    #     # 每天一个子文件夹
+    #     today = datetime.now().strftime("%Y%m%d")
+    #     base_dir = os.path.join(root_dir, today)
+    #     os.makedirs(base_dir, exist_ok=True)
+
+    #     # 时间戳文件名前缀
+    #     timestamp = datetime.now().strftime("%H%M%S")
+
+    #     # 1. 保存原始图像
+    #     origin_path = os.path.join(base_dir, f"{timestamp}_origin.jpg")
+    #     cv2.imwrite(origin_path, img)
+
+    #     # 2. 保存掩码图像
+    #     mask_path = None
+    #     if seg_mask is not None:
+    #         mask_path = os.path.join(base_dir, f"{timestamp}_mask.png")
+    #         cv2.imwrite(mask_path, seg_mask)
+
+    #     # 3. 保存元数据（标签、分数、边界框等）
+    #     meta = []
+    #     for obj in response.objects.objects:
+    #         item = {
+    #             "category": obj.category,
+    #             "score": float(obj.score),
+    #             "bbox": [obj.rect.x1, obj.rect.y1, obj.rect.x2, obj.rect.y2],
+    #         }
+    #         if obj.rect_rotated.width > 0:  # 有旋转框才保存
+    #             item["rect_rotated"] = {
+    #                 "cx": obj.rect_rotated.center_x,
+    #                 "cy": obj.rect_rotated.center_y,
+    #                 "w": obj.rect_rotated.width,
+    #                 "h": obj.rect_rotated.height,
+    #                 "angle": obj.rect_rotated.angle,
+    #             }
+    #         meta.append(item)
+
+    #     meta_path = os.path.join(base_dir, f"{timestamp}_meta.yaml")
+    #     with open(meta_path, "w") as f:
+    #         yaml.dump(meta, f, allow_unicode=True)
+
+    #     # 4. 保存可视化结果（方便快速查看）
+    #     vis_img = img.copy()
+    #     if seg_mask is not None:
+    #         color_mask = np.zeros_like(img)
+    #         for i in np.unique(seg_mask):
+    #             if i == 0:  # 背景跳过
+    #                 continue
+    #             color = [random.randint(0, 255) for _ in range(3)]
+    #             color_mask[seg_mask == i] = color
+    #         vis_img = cv2.addWeighted(vis_img, 0.6, color_mask, 0.4, 0)
+
+    #     for obj in response.objects.objects:
+    #         rect = obj.rect
+    #         cv2.rectangle(vis_img, (rect.x1, rect.y1), (rect.x2, rect.y2), (0, 255, 0), 2)
+    #         cv2.putText(vis_img, f"{obj.category} {obj.score:.2f}",
+    #                     (rect.x1, max(0, rect.y1 - 5)),
+    #                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+
+    #     vis_path = os.path.join(base_dir, f"{timestamp}_vis.jpg")
+    #     cv2.imwrite(vis_path, vis_img)
+
+    #     logger.info(f"结果已保存: {origin_path}, {mask_path}, {meta_path}, {vis_path}")
+
+
+    ######################################################################################
     def save_results(self, img, seg_mask, response):
-        """保存分割结果（原图、掩码、类别、分数、框信息）"""
-        # 固定根目录
+        """
+        保存分割结果（原图、掩码、类别、分数、框信息）
+        （已修改为 C++ 节点类似的 session 目录结构）
+        """
+        
+        # 1. 定义检测结果的根目录
+        # 我们保留 /detector 子目录，以便与 C++ 位姿估计节点保存的数据区分开
         root_dir = "/workspace/src/papjia_melon/papjia_melon_calibration/test_savedata/data_point_images/detector"
-        # 每天一个子文件夹
-        today = datetime.now().strftime("%Y%m%d")
-        base_dir = os.path.join(root_dir, today)
+
+        # 2. 创建 C++ 风格的 "session" 目录
+        # 格式: session_YYYYMMDD_HHMMSS
+        session_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        session_name = f"session_{session_timestamp}"
+        
+        # base_dir 现在是 session 目录
+        base_dir = os.path.join(root_dir, session_name)
         os.makedirs(base_dir, exist_ok=True)
 
-        # 时间戳文件名前缀
-        timestamp = datetime.now().strftime("%H%M%S")
+        # 3. 定义文件路径（使用固定的文件名，因为父目录已经是唯一的）
+        origin_path = os.path.join(base_dir, "origin.jpg")
+        mask_path = os.path.join(base_dir, "mask.png")
+        meta_path = os.path.join(base_dir, "meta.yaml")
+        vis_path = os.path.join(base_dir, "vis.jpg")
 
-        # 1. 保存原始图像
-        origin_path = os.path.join(base_dir, f"{timestamp}_origin.jpg")
+        # 4. 保存原始图像
+        # 注意：C++ 节点保存的是 bgr8, 而你的 seg() 之前可能转了 RGB
+        # 这里我们假设 img 已经是 cv2 期望的 BGR 格式（如果不是，请用 cv2.cvtColor(img, cv2.COLOR_RGB2BGR)）
         cv2.imwrite(origin_path, img)
 
-        # 2. 保存掩码图像
-        mask_path = None
-        if seg_mask is not None:
-            mask_path = os.path.join(base_dir, f"{timestamp}_mask.png")
+        # 5. 保存掩码图像
+        if seg_mask is None:
+            mask_path = "None" # 更新日志信息
+        else:
             cv2.imwrite(mask_path, seg_mask)
 
-        # 3. 保存元数据（标签、分数、边界框等）
+        # 6. 保存元数据 (YAML)
         meta = []
         for obj in response.objects.objects:
             item = {
@@ -231,17 +314,17 @@ class ImageSegService(Node):
                 }
             meta.append(item)
 
-        meta_path = os.path.join(base_dir, f"{timestamp}_meta.yaml")
         with open(meta_path, "w") as f:
             yaml.dump(meta, f, allow_unicode=True)
 
-        # 4. 保存可视化结果（方便快速查看）
+        # 7. 保存可视化结果
         vis_img = img.copy()
         if seg_mask is not None:
             color_mask = np.zeros_like(img)
             for i in np.unique(seg_mask):
                 if i == 0:  # 背景跳过
                     continue
+                # 为每个实例生成随机颜色
                 color = [random.randint(0, 255) for _ in range(3)]
                 color_mask[seg_mask == i] = color
             vis_img = cv2.addWeighted(vis_img, 0.6, color_mask, 0.4, 0)
@@ -253,10 +336,11 @@ class ImageSegService(Node):
                         (rect.x1, max(0, rect.y1 - 5)),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
 
-        vis_path = os.path.join(base_dir, f"{timestamp}_vis.jpg")
         cv2.imwrite(vis_path, vis_img)
 
-        logger.info(f"结果已保存: {origin_path}, {mask_path}, {meta_path}, {vis_path}")
+        logger.info(f"分割结果已保存至 session 目录: {base_dir}")
+
+######################################################################################
 
 ######################################################################################
     def publish_segment_result_image(self, img, res):
