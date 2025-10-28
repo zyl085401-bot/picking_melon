@@ -22,12 +22,10 @@ services:
     network_mode: host
     ipc: host
     stdin_open: true  # 允许交互
-    
-    shm_size: '2gb' ####我修改的地方
-    
     tty: true  # 保持终端运行
     privileged: true
     environment:
+      - ROS_DOMAIN_ID=7
       - TZ=Asia/Shanghai
       - DISPLAY=${DISPLAY}
       - QT_X11_NO_MITSHM=1
@@ -65,6 +63,7 @@ services:
   #   tty: true  # 保持终端运行
   #   privileged: true
   #   environment:
+        # - ROS_DOMAIN_ID=7
   #     - TZ=Asia/Shanghai
   #     - DISPLAY=${DISPLAY}
   #     - QT_X11_NO_MITSHM=1
@@ -92,6 +91,7 @@ services:
       - ../../tools:/workspace/src/tools
       - ../../papjia_melon:/workspace/src/papjia_melon
     environment:
+      - ROS_DOMAIN_ID=7
       - TZ=Asia/Shanghai
       - WAYPOINT_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/waypoint_configs.json
       - ACTION_MODEL_CONFIG_FILEPATH=/workspace/src/papjia_melon/papjia_melon_config/config/action_model.yaml

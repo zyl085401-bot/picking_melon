@@ -79,7 +79,7 @@ CMD ["bash"]
 
 # load_arm_sim
 # ros2 launch papjia_melon_config rgbd_publish_base.launch.py
-# load_vision="ros2 launch papjia_melon_config vision_base.launch.py
+# ros2 launch papjia_melon_config vision_base.launch.py
 # load_bt
 # python src/papjia_melon/papjia_melon_config/papjia_melon_config/task_node_base.py
 
