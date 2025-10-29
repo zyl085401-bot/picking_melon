@@ -24,13 +24,13 @@ def generate_launch_description():
 
     # 参数配置
     rgb_file = os.path.join(
-        get_package_share_directory("papjia_melon_config"), "resource/images/test/3_hand_rgb.png"
+        get_package_share_directory("papjia_melon_config"), "resource/images/rgb_20250610_161028_802108.png"
     )
     depth_file = os.path.join(
-        get_package_share_directory("papjia_melon_config"), "resource/images/test/3_hand_depth.png"
+        get_package_share_directory("papjia_melon_config"), "resource/images/depth_20250610_161028_802108.png"
     )
     camera_info_file = os.path.join(
-        get_package_share_directory("papjia_melon_config"), "resource/images/test/3_camera_hand_info.yaml"
+        get_package_share_directory("papjia_melon_config"), "resource/images/camera_info_20250610_161028_802108.yaml"
     )
 
     # 检查文件是否存在
